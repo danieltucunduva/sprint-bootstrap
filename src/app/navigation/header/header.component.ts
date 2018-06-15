@@ -4,22 +4,22 @@ import {
   EventEmitter,
   Output,
   OnDestroy
-} from "@angular/core";
-import { Subscription } from "rxjs";
+} from '@angular/core';
+import { Subscription } from 'rxjs';
 
-import { AuthenticationService } from "../../authentication/authentication.service";
+import { AuthenticationService } from '../../authentication/authentication.service';
 
 @Component({
-  selector: "app-header",
-  templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.css"]
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   @Output() sidenavToggle = new EventEmitter<void>();
   isAuthenticated = false;
   authenticationSubscription: Subscription;
 
-  constructor(private authenticationService: AuthenticationService) {}
+  constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.authenticationService.authenticationChange.subscribe(

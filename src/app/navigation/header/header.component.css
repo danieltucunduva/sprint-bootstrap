@@ -1,4 +1,5 @@
-a, .logo {
+a,
+.logo {
   text-decoration: none;
   color: white;
   padding: 0em 0.5em;
@@ -10,15 +11,18 @@ a:active {
   color: lightgray;
 }
 
+li {
+  /* font-style: inherit; */
+  font-size: 17pt;
+}
 
-mat-toolbar {
-  margin-bottom: 20px;
-  height: 64px;
+ul {
+  list-style-type: none;
 }
 
 .app-name {
-    font-family: monospace;
-    font-size: 110%;
-    font-style: oblique;
-    font-weight: 500;
-  }
+  font-family: monospace;
+  font-size: 110%;
+  font-style: oblique;
+  font-weight: 500;
+}

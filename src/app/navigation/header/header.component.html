@@ -1,4 +1,47 @@
-<mat-toolbar color="primary">
+<!--Navbar-->
+<mdb-navbar SideClass="navbar fixed-top navbar-expand navbar-dark indigo">
+
+  <!-- Navbar brand -->
+  <logo style="width: 20%;" fxHide.xs>
+    <img class="logo" alt="Sprints Logo" src="assets/logo.png" height="2em">
+  </logo>
+  <logo style="width: 20%;" fxHide.gt-xs (click)="onToggleSidenav()">
+    <img class="logo" alt="Sprints Logo" src="assets/logo.png" height="2em">
+  </logo>
+
+  <!-- Collapsible content -->
+  <links style="width: 80%;">
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto" style="width: 100%;">
+      <li class="nav-item" style="width: 100%; text-align: center;">
+        <a class="nav-link waves-light" routerLink="/" fxHide.xs fxHide.xs mdbWavesEffect>
+          <i>≡Sprint</i>
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item" style="width: 20%; text-align: right;">
+        <ul class="navbar-nav mr-auto">
+          <li *ngIf="isAuthenticated" class="nav-item">
+            <a routerLink="/sprint" fxHide.xs>Sprints</a>
+          </li>
+          <li *ngIf="isAuthenticated" class="nav-item">
+            <a routerLink="" (click)="onClickLogout()" fxHide.xs>Logout</a>
+          </li>
+          <li>
+            <a *ngIf="!isAuthenticated" class="nav-link waves-light" (click)="login()" style="cursor: pointer" fxHide.xs mdbWavesEffect>Login
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <!-- Links -->
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->
+<!-- <mat-toolbar color="primary">
   <div fxFlex fxLayoutAlign="start">
     <div fxHide.gt-xs style="width: 100%">
       <button mat-icon-button (click)="onToggleSidenav()">
@@ -25,4 +68,4 @@
     </div>
   </div>
   <audio src="./assets/notification.wav"></audio>
-</mat-toolbar>
+</mat-toolbar> -->

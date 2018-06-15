@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { Http, HttpModule } from '@angular/http';
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule, LOCALE_ID, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -26,6 +26,8 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { VersionTagComponent } from './welcome/version-tag/version-tag.component';
 import { StopSprintDialogComponent } from './sprint/ongoing-sprint/stop-sprint-dialog/stop-sprint-dialog.component';
+
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -54,7 +56,8 @@ registerLocaleData(localeFr, 'fr');
     AppRoutingModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [
     AuthenticationService,
@@ -62,6 +65,7 @@ registerLocaleData(localeFr, 'fr');
     { provide: LOCALE_ID, useValue: 'fr' }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [TermsDialogComponent, StopSprintDialogComponent, SprintFinishedDialogComponent, DeleteDataDialogComponent]
+  entryComponents: [TermsDialogComponent, StopSprintDialogComponent, SprintFinishedDialogComponent, DeleteDataDialogComponent],
+  schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
