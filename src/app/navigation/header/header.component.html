@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+  <div fxFlex fxLayoutAlign="start">
+    <div fxHide.gt-xs style="width: 100%">
+      <button mat-icon-button (click)="onToggleSidenav()">
+        <img class="logo" alt="Sprints Logo" src="assets/logo.png">
+      </button>
+    </div>
+    <div fxHide.xs style="width: 100%">
+      <button mat-icon-button style="cursor:default">
+        <img class="logo" alt="Sprints Logo" src="assets/logo.png">
+      </button>
+    </div>
+  </div>
+  <div fxHide.xs fxFlex fxLayout fxLayoutAlign="center center">
+    <a class='app-name' routerLink="/">≡Sprint</a>
+  </div>
+  <div fxHide.gt-xs fxFlex fxLayout fxLayoutAlign="center center">
+    <a class='app-name' style="cursor: default">≡Sprint</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end">
+    <div fxLayout fxLayoutAlign="flex-end">
+      <a *ngIf="!isAuthenticated" (click)="login()" style="cursor: pointer" fxHide.xs>Login</a>
+      <a *ngIf="isAuthenticated" routerLink="/sprint" fxHide.xs>Sprints</a>
+      <a *ngIf="isAuthenticated" style="cursor: pointer" (click)="onClickLogout()" fxHide.xs>Logout</a>
+    </div>
+  </div>
+  <audio src="./assets/notification.wav"></audio>
+</mat-toolbar>

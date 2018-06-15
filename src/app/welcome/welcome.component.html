@@ -1,0 +1,25 @@
+<div fxLayoutAlign="center center" fxLayout="column">
+  <section fxLayout fxLayoutAlign="center center">
+    <mat-card fxFlex="20em" fxLayoutAlign="center center" fxLayout="column">
+      <mat-card-title fxLayoutAlign="center center">About</mat-card-title>
+      <mat-card-content>
+        <p>Sprint is a minimalist desktop time management application inspired by the
+          <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Pomodoro Technique</a>.
+        </p>
+        <p>Choose a sprint length, enter a brief description of the activity, and get things done.</p>
+        <p>Preferred browser:
+          <a href="https://www.google.com/chrome/">Chrome</a>.
+        </p>
+        <p>
+          <span style="text-decoration: underline; cursor: pointer" (click)="onClickTermsAndConditions()">Terms and conditions</span>.
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </section>
+  <footer fxLayoutAlign="center center" fxLayout="column">
+    <app-version-tag> </app-version-tag>
+    <div>
+      <a href="mailto:daniel.tucunduva@gmail.com?subject=Sprint bug report" class="report-bug" type="submit" mat-button color="primary">Report bug</a>
+    </div>
+  </footer>
+</div>

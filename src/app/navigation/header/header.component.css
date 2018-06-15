@@ -1,0 +1,24 @@
+a, .logo {
+  text-decoration: none;
+  color: white;
+  padding: 0em 0.5em;
+  height: 36px;
+}
+
+a:hover,
+a:active {
+  color: lightgray;
+}
+
+
+mat-toolbar {
+  margin-bottom: 20px;
+  height: 64px;
+}
+
+.app-name {
+    font-family: monospace;
+    font-size: 110%;
+    font-style: oblique;
+    font-weight: 500;
+  }
