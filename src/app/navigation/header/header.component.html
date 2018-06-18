@@ -1,14 +1,10 @@
 <div color="primary" class="headnav-container">
-  <div fxFlex="1 0 20%" fxLayoutAlign="start">
-    <div fxHide.gt-xs style="width: 100%">
-      <button mat-icon-button (click)="onToggleSidenav()">
-        <img class="logo" alt="Sprints Logo" src="assets/logo.png">
-      </button>
+  <div fxFlex="1 0 20%">
+    <div fxHide.xs class="logo">
+      <img alt="Sprints Logo" src="assets/logo.png">
     </div>
-    <div fxHide.xs style="width: 100%">
-      <button mat-icon-button style="cursor:default">
-        <img class="logo" alt="Sprints Logo" src="assets/logo.png">
-      </button>
+    <div (click)="onToggleSidenav()" fxHide.gt-xs class="logo">
+      <img alt="Sprints Logo" src="assets/logo.png">
     </div>
   </div>
   <div fxFlex="1 1 60%" fxHide.xs fxLayout fxLayoutAlign="center center">

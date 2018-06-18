@@ -1,7 +1,11 @@
-.logo {
+img {
   text-decoration: none;
-  color: white;
-  padding: 1em;
+  padding: 0.6em;
+  height: 64px;
+  pointer-events: none;
+}
+
+.logo {
   height: 64px;
 }
 
