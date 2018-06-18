@@ -1,13 +1,19 @@
 thead{
   color: gray;
-  font-family:robot "Helvetica Neue",sans-serif;
+  font-family: "Helvetica Neue",sans-serif;
   font-size: 12px;
 
 }
-tr{
-  font-family:robot "Helvetica Neue",sans-serif!important;
+tbody{
+  font-family: "Helvetica Neue",sans-serif!important;
   background-color: white!important;
   font-size: 14px!important;
+}
+th{
+  font-weight: inherit;
+}
+tr{
+  background-color: white!important;
 }
 
 .inputSearch{
