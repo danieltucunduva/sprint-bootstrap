@@ -1,8 +1,47 @@
 .delete-user {
-    margin-top: 4em;
-    margin-bottom: 1.5em;
+  margin-top: 4em;
+  margin-bottom: 1.5em;
 }
 
-.import-sprint-template {
-    margin: 1.5em;
+.tab {
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  background-color: white;
+  margin-top: 1.5em;
+}
+
+.tab button {
+  /* background-color: inherit; */
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 1em 1em;
+  transition: 0.3s;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: gray;
+  background-color: white;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+/* Change background color of buttons on hover */
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  border-bottom: 2px solid #3f51b5;
+}
+
+/* Style the tab content */
+
+.tabcontent {
+  display: block;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
 }

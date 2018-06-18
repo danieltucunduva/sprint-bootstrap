@@ -3,7 +3,7 @@
     <div fxHide.xs class="logo">
       <img alt="Sprints Logo" src="assets/logo.png">
     </div>
-    <div (click)="onToggleSidenav()" fxHide.gt-xs class="logo">
+    <div (click)="onToggleSidenav()" fxHide.gt-xs class="logo" style="cursor: pointer;">
       <img alt="Sprints Logo" src="assets/logo.png">
     </div>
   </div>
@@ -15,9 +15,9 @@
   </div>
   <div fxFlex="1 0 20%" fxLayout fxLayoutAlign="end center" class="header-links">
     <div fxLayout fxLayoutAlign="end">
-      <a *ngIf="!isAuthenticated" (click)="login()" fxHide.xs>Login</a>
-      <a *ngIf="isAuthenticated" routerLink="/sprint" fxHide.xs>Sprints</a>
-      <a *ngIf="isAuthenticated" style="cursor: pointer" (click)="onClickLogout()" fxHide.xs>Logout</a>
+      <a *ngIf="!isAuthenticated" (click)="login()" fxHide.xs style="cursor: pointer;">Login</a>
+      <a *ngIf="isAuthenticated" routerLink="/sprint" fxHide.xs style="cursor: pointer;">Sprints</a>
+      <a *ngIf="isAuthenticated" style="cursor: pointer" (click)="onClickLogout()" fxHide.xs style="cursor: pointer;">Logout</a>
     </div>
   </div>
   <audio src="./assets/notification.wav"></audio>

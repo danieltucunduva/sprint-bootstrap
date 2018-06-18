@@ -59,4 +59,13 @@ export class SprintComponent implements OnInit {
     });
   }
 
+  onClickPastSprintsTabHeader() {
+    this.tabIndex = 0;
+  }
+
+  onClickNewSprintTabHeader() {
+    this.tabIndex = 1;
+  }
+
+
 }
