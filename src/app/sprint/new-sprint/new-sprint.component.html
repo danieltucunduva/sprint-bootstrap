@@ -1,31 +1,36 @@
 <section fxLayout fxLayoutAlign="center center" class="new-sprint">
   <form (ngSubmit)="onSubmitNewSprintForm()" [formGroup]="newSprintForm" fxLayoutAlign="center center">
-    <mat-card fxFlex="20em" fxLayoutAlign="center center" fxLayout="column" fxLayoutGap="1em">
-      <mat-card-title fxLayoutAlign="center">Start a sprint!</mat-card-title>
-      <mat-card-content fxLayoutAlign="center" fxLayout="column">
-        <mat-form-field>
-          <mat-select placeholder="Choose length *" formControlName="selectedSprint">
-            <mat-option *ngFor="let sprint of sprints" value="{{ sprint._id }}"> {{ getSprintFullName(sprint) }}</mat-option>
-          </mat-select>
-          <mat-hint *ngIf="newSprintForm.get('selectedSprint').valid" align="end">✔</mat-hint>
-          <mat-error *ngIf="newSprintForm.get('selectedSprint').hasError('required')">Required</mat-error>
-        </mat-form-field>
-        <mat-form-field fxLayoutAlign="center">
-          <textarea matInput placeholder="Description*" formControlName="description"></textarea>
-          <mat-hint *ngIf="newSprintForm.get('description').value === ''">What will you be doing?</mat-hint>
-          <mat-hint *ngIf="newSprintForm.get('description').value != ''" align="end">✔</mat-hint>
-          <mat-error *ngIf="newSprintForm.get('description').hasError('required')">Required</mat-error>
-        </mat-form-field>
-      </mat-card-content>
-      <mat-checkbox *ngIf="!showNotificationCheckbox" fxLayoutAlign="center" color="primary" formControlName="notifyDisabled">
-        <mat-hint *ngIf="!showNotificationCheckbox" class="disabled-checkbox">Notifications disabled by browser</mat-hint>
-      </mat-checkbox>
-      <mat-checkbox *ngIf="showNotificationCheckbox" fxLayoutAlign="center" color="primary" formControlName="notify">
-        Notify when completed
-      </mat-checkbox>
-      <mat-card-actions fxLayoutAlign="center">
-        <button type="submit" mat-raised-button color="primary" [disabled]="!newSprintForm.valid">Start</button>
-      </mat-card-actions>
-    </mat-card>
+    <div class="card" fxLayout="column" fxLayoutGap="0.5em">
+      <h1>Start a sprint!</h1>
+      <br>
+      <div class="select">
+        <select class="select-text" formControlName="selectedSprint">
+          <option *ngFor="let sprint of sprints" value="{{ sprint._id }}"> {{ getSprintFullName(sprint) }} </option>
+        </select>
+        <span class="select-highlight"></span>
+        <span class="select-bar"></span>
+        <label class="select-label">Choose length *</label>
+        <div class="label-hint-valid">
+          <label>{{newSprintForm.get('selectedSprint').valid ? '✔' : 'Required'}}</label>
+        </div>
+      </div>
+      <div>
+        <div class="label-hint">
+          <label>Description *</label>
+        </div>
+        <textarea rows="3" formControlName="description" placeholder="What will you be doing?"></textarea>
+        <div class="label-hint-valid">
+          <label>{{newSprintForm.get('description').valid ? '✔' : 'Required'}}</label>
+        </div>
+      </div>
+      <label class="material-checkbox">
+        <input type="checkbox" *ngIf="showNotificationCheckbox" formControlName="notify">
+        <span *ngIf="showNotificationCheckbox"> Notify when completed</span>
+        <input type="checkbox" *ngIf="!showNotificationCheckbox" formControlName="notifyDisabled">
+        <span *ngIf="!showNotificationCheckbox"> Notifications disabled by browser</span>
+      </label>
+      <br>
+      <button type="submit" mat-raised-button color="primary" [disabled]="!newSprintForm.valid">Start</button>
+    </div>
   </form>
 </section>

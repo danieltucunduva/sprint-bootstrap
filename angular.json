@@ -27,7 +27,6 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
               "src/styles.css"
             ],
             "scripts": [
