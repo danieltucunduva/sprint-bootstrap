@@ -8,8 +8,7 @@ mat-card-title {
 }
 
 p {
-  font-size: 120%;
-  line-height: 1.5em;
+  font-size: 11pt;
   max-width: 15em;
   text-align: justify
 }
@@ -28,4 +27,20 @@ footer {
 .report-bug {
   margin-top: 4em;
   margin-bottom: 1.5em;
+}
+
+.card {
+  width: 16em;
+  height: 22em;
+  box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+  padding: 0 2em 1em 2em;
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 19pt;
+  font-weight: 500;
+  color: rgb(10, 10, 10, .87);
 }

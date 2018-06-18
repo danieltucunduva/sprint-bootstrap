@@ -1,30 +1,32 @@
-<input class="inputSearch" [(ngModel)]="searchText" placeholder="Filter by length, status, date or description">
+<div style="width: 100%; padding: 0.5em 0;" fxLayoutAlign="center center">
+  <input class="inputSearch" [(ngModel)]="searchText" placeholder="Filter by length, status, date or description">
+</div>
 <table [mfData]="dataSource.data" #mf="mfDataTable" [mfRowsOnPage]="10">
   <thead>
     <tr>
-      <th style="width: 12%; min-width: 10em;">
+      <th style="width: 12%; min-width: 7em;">
         <mfDefaultSorter by="name">Length</mfDefaultSorter>
       </th>
-      <th style="width: 12%; min-width: 10em;">
+      <th style="width: 12%; min-width: 7em;">
         <mfDefaultSorter by="status">Status</mfDefaultSorter>
       </th>
-      <th style="width: 12%; min-width: 6em;">
+      <th style="width: 12%; min-width: 5em;">
         <mfDefaultSorter by="startedAt">Date</mfDefaultSorter>
       </th>
-      <th style="width: 12%; min-width: 6em;">
+      <th style="width: 12%; min-width: 5em;">
         <mfDefaultSorter by="startedAt">Start</mfDefaultSorter>
       </th>
-      <th style="width: 12%; min-width: 6em;">
+      <th style="width: 12%; min-width: 5em;">
         <mfDefaultSorter by="finishedAt">Finish</mfDefaultSorter>
       </th>
-      <th style="width: 40%; min-width: 10em;">
+      <th style="width: 40%; min-width: 8em;">
         <mfDefaultSorter by="description">Description</mfDefaultSorter>
       </th>
 
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of mf.data | filter : searchText">
+    <tr *ngFor="let item of mf.data | filter : searchText" style="visibility: collapse;">
       <td>{{getSprintFullName(item)}}</td>
       <td>{{getStatus(item)}}</td>
       <td>{{item.startedAt | date:"yyyy-MM-dd" }}</td>

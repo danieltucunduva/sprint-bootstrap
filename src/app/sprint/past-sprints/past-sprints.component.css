@@ -1,5 +1,6 @@
 table {
   width: fit-content;
+  overflow-x: scroll;
 }
 
 thead {
@@ -20,11 +21,9 @@ tr {
 }
 
 .inputSearch {
-  width: 25%;
-  margin-left: 37.5%;
+  width: 20em;
   border: 0px;
   border-bottom: solid 0.5px;
   font-size: 14px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  padding: 0.2em;
 }

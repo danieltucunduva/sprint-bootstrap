@@ -13,7 +13,7 @@ mat-checkbox {
 }
 
 .card {
-  width: 15em;
+  width: 16em;
   height: 22em;
   box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
