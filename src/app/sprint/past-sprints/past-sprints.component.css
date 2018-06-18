@@ -24,5 +24,30 @@ tr{
  font-size: 14px;
 margin-top:15px;
 margin-bottom:15px;
-
+border-color:gray
 }
+
+
+:host /deep/ ul{
+  float: right;
+  padding-left:15px;
+}
+:host /deep/ .pull-right:before{
+  content: "Items per page: ";
+  font-size: 13px!important;
+  color: gray;
+  padding-right:2px;
+  padding-top:3px
+}
+
+:host /deep/  .page-link {
+  line-height: 0.50!important;
+  font-size: 14px!important;
+}
+
+
+:host /deep/ .pagination > .active > a {
+  background-color: #3f51b5;
+  border-color:#3f51b5;
+ }
+
