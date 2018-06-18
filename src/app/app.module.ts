@@ -26,6 +26,12 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { VersionTagComponent } from './welcome/version-tag/version-tag.component';
 import { StopSprintDialogComponent } from './sprint/ongoing-sprint/stop-sprint-dialog/stop-sprint-dialog.component';
+import { FilterPipe } from './pipe/filter.pipe';
+import {DataTableModule} from 'angular-6-datatable';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
+
+
 
 registerLocaleData(localeFr, 'fr');
 
@@ -44,7 +50,9 @@ registerLocaleData(localeFr, 'fr');
     LoggedUserNameComponent,
     VersionTagComponent,
     DeleteDataDialogComponent,
-    StopSprintDialogComponent
+    StopSprintDialogComponent,
+    FilterPipe
+
   ],
   imports: [
     BrowserModule,
@@ -54,7 +62,9 @@ registerLocaleData(localeFr, 'fr');
     AppRoutingModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTableModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [
     AuthenticationService,
