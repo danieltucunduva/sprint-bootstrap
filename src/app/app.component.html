@@ -1,11 +1,11 @@
-<mat-sidenav-container>
-  <mat-sidenav #sidenav role="navigation">
-    <app-sidenav-list (closeSidenav)="sidenav.close()"></app-sidenav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+<div>
+  <div #sidenav role="navigation" [hidden]="true">
+    <app-sidenav-list (closeSidenav)="sidenav.hidden = true"></app-sidenav-list>
+  </div>
+  <div>
+    <app-header (sidenavToggle)="sidenav.hidden = false"></app-header>
     <main [@flyInOut]="getActivatedRouteState(routerOutletRef)">
       <router-outlet #routerOutletRef="outlet"></router-outlet>
     </main>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </div>
+</div>

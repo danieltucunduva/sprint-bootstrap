@@ -1,13 +1,26 @@
-mat-sidenav-container, mat-sidenav-content, mat-sidenav {
-    height: 100%;
+.sidenav {
+  height: 100%;
+  width: 10em;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  opacity: 1;
+  overflow-x: hidden;
+  padding-top: 1em;
+  transition: 0.5s;
 }
 
-mat-sidenav {
-    width: 30%;
-    min-width: 200px;
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 15pt;
+  display: block;
+  transition: 0.3s;
+  color: black;
 }
 
-.nav-caption {
-    display: inline-block;
-    padding-left: 5px;
+.sidenav a:hover {
+  color: lightgray;
 }

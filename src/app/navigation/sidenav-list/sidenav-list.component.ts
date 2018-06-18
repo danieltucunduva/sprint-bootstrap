@@ -4,21 +4,21 @@ import {
   EventEmitter,
   Output,
   OnDestroy
-} from "@angular/core";
-import { Subscription } from "rxjs";
-import { AuthenticationService } from "../../authentication/authentication.service";
+} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthenticationService } from '../../authentication/authentication.service';
 
 @Component({
-  selector: "app-sidenav-list",
-  templateUrl: "./sidenav-list.component.html",
-  styleUrls: ["./sidenav-list.component.css"]
+  selector: 'app-sidenav-list',
+  templateUrl: './sidenav-list.component.html',
+  styleUrls: ['./sidenav-list.component.css']
 })
 export class SidenavListComponent implements OnInit, OnDestroy {
   @Output() closeSidenav = new EventEmitter<void>();
   isAuthenticated = false;
   authenticationSubscription: Subscription;
 
-  constructor(private authenticationService: AuthenticationService) {}
+  constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     this.authenticationService.authenticationChange.subscribe(

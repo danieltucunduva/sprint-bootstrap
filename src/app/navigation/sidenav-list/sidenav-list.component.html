@@ -1,20 +1,6 @@
-<mat-nav-list>
-  <a mat-list-item routerLink="/" (click)="onClickNavListItem()">
-    <mat-icon> home </mat-icon>
-    <span class="nav-caption">Home</span>
-  </a>
-  <a *ngIf="!isAuthenticated" mat-list-item (click)="login()" (click)="onClickNavListItem()">
-    <mat-icon> exit_to_app </mat-icon>
-    <span class="nav-caption">Login</span>
-  </a>
-  <a *ngIf="isAuthenticated" mat-list-item routerLink="/sprint" (click)="onClickNavListItem()">
-    <mat-icon> av_timer </mat-icon>
-    <span class="nav-c                                                                                         aption">Sprints</span>
-  </a>
-  <mat-list-item *ngIf="isAuthenticated" (click)="onClickLogout()">
-    <button mat-icon-button>
-      <mat-icon>keyboard_return</mat-icon>
-      <span class="nav-caption">Logout</span>
-    </button>
-  </mat-list-item>
-</mat-nav-list>
+<div class="sidenav">
+  <a routerLink="/" (click)="onClickNavListItem()">Home</a>
+  <a *ngIf=" !isAuthenticated " (click)="login()" (click)="onClickNavListItem()">Login</a>
+  <a *ngIf="isAuthenticated" routerLink="/sprint" (click)="onClickNavListItem()">Sprints</a>
+  <a *ngIf="isAuthenticated" (click)="onClickLogout()" (click)="onClickNavListItem()">Logout</a>
+</div>
