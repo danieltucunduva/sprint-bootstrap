@@ -5,6 +5,8 @@ import { SprintService } from '../sprint.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { AuthenticationService } from '../../authentication/authentication.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-past-sprints',
@@ -12,6 +14,7 @@ import { AuthenticationService } from '../../authentication/authentication.servi
   styleUrls: ['./past-sprints.component.css']
 })
 export class PastSprintsComponent implements OnInit, AfterViewInit {
+  searchText: String;
   dataSource = new MatTableDataSource<ISprint>();
   displayedColumns = [
     'name', 'spacing', 'status', 'spacing', 'startedDate', 'spacing',

@@ -61,7 +61,7 @@ if (USE_CONSOLE_FOR_LOGGING || ENV_USE_CONSOLE_FOR_LOGGING === 'true') {
   })
 }
 
-// DB_URI_LOCAL = 'mongodb:// localhost:27017/db_sprint'
+ DB_URI_LOCAL = 'mongodb://localhost:27017/db_sprint'
 
 const ENV_DB_URI = process.env.MONGODB_URI
 
