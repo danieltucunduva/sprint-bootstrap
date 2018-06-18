@@ -1,52 +1,5 @@
-<!--Navbar-->
-<mdb-navbar SideClass="navbar fixed-top navbar-expand navbar-dark indigo">
-
-  <!-- Navbar brand -->
-  <logo style="width: 10%;" fxHide.xs>
-    <img class="logo" alt="Sprints Logo" src="assets/logo.png" height="2em">
-  </logo>
-  <logo style="width: 10%;" fxHide.gt-xs (click)="onToggleSidenav()">
-    <img class="logo" alt="Sprints Logo" src="assets/logo.png" height="2em">
-  </logo>
-
-  <!-- Collapsible content -->
-  <links style="width: 90%;">
-    <!-- Links -->
-    <ul class="navbar-nav mr-auto" style="width: 100%;">
-      <li class="nav-item" style="flex: 13; text-align: center;">
-      </li>
-      <li class="nav-item" style="flex: 8; text-align: left;">
-        <a class="nav-link waves-light" routerLink="/" fxHide.xs fxHide.xs mdbWavesEffect>
-          <i>≡Sprint</i>
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <li class="nav-item" style="flex: 6; text-align: center;">
-      </li>
-      <li class="nav-item" style="flex: 2; text-align: right;">
-        <ul class="navbar-nav mr-auto">
-          <li *ngIf="isAuthenticated" class="nav-item">
-            <a routerLink="/sprint" fxHide.xs>Sprints</a>
-          </li>
-          <li *ngIf="isAuthenticated" class="nav-item">
-            <a routerLink="" (click)="onClickLogout()" fxHide.xs>Logout</a>
-          </li>
-          <li>
-            <a *ngIf="!isAuthenticated" class="nav-link waves-light" (click)="login()" style="cursor: pointer" fxHide.xs mdbWavesEffect>Login
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <!-- Links -->
-  </links>
-  <!-- Collapsible content -->
-
-</mdb-navbar>
-<!--/.Navbar-->
-<!-- <mat-toolbar color="primary">
-  <div fxFlex fxLayoutAlign="start">
+<div color="primary" class="headnav-container">
+  <div fxFlex="1 0 20%" fxLayoutAlign="start">
     <div fxHide.gt-xs style="width: 100%">
       <button mat-icon-button (click)="onToggleSidenav()">
         <img class="logo" alt="Sprints Logo" src="assets/logo.png">
@@ -58,18 +11,18 @@
       </button>
     </div>
   </div>
-  <div fxHide.xs fxFlex fxLayout fxLayoutAlign="center center">
+  <div fxFlex="1 1 60%" fxHide.xs fxLayout fxLayoutAlign="center center">
     <a class='app-name' routerLink="/">≡Sprint</a>
   </div>
-  <div fxHide.gt-xs fxFlex fxLayout fxLayoutAlign="center center">
+  <div fxFlex="8 8 70%" fxHide.gt-xs fxLayout fxLayoutAlign="center center">
     <a class='app-name' style="cursor: default">≡Sprint</a>
   </div>
-  <div fxFlex fxLayout fxLayoutAlign="end">
-    <div fxLayout fxLayoutAlign="flex-end">
-      <a *ngIf="!isAuthenticated" (click)="login()" style="cursor: pointer" fxHide.xs>Login</a>
+  <div fxFlex="1 0 20%" fxLayout fxLayoutAlign="center center">
+    <div fxLayout fxLayoutAlign="center center">
+      <a *ngIf="!isAuthenticated" (click)="login()" fxHide.xs>Login</a>
       <a *ngIf="isAuthenticated" routerLink="/sprint" fxHide.xs>Sprints</a>
       <a *ngIf="isAuthenticated" style="cursor: pointer" (click)="onClickLogout()" fxHide.xs>Logout</a>
     </div>
   </div>
   <audio src="./assets/notification.wav"></audio>
-</mat-toolbar> -->
+</div>

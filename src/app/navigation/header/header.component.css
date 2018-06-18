@@ -1,28 +1,36 @@
-a,
 .logo {
   text-decoration: none;
   color: white;
-  padding: 0em 0.5em;
-  height: 36px;
+  padding: 1em;
+  height: 64px;
 }
 
+a {
+  color: white;
+  font-weight: 400;
+  padding: 0em 0.5em;
+}
+
+a:not([href]):not([tabindex]):hover,
 a:hover,
 a:active {
   color: lightgray;
 }
 
-li {
-  /* font-style: inherit; */
+.app-name {
+  font-family: monospace;
+  font-style: oblique;
   font-size: 17pt;
 }
 
-ul {
-  list-style-type: none;
+a:not([href]):not([tabindex]),
+a:not([href]):not([tabindex]):focus {
+  color: white;
 }
 
-.app-name {
-  font-family: monospace;
-  font-size: 110%;
-  font-style: oblique;
-  font-weight: 500;
+.headnav-container {
+  width: 100%;
+  background-color: #3f51b5;
+  height: 64px;
+  font-size: 15pt;
 }
