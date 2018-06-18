@@ -1,22 +1,30 @@
-thead{
+table {
+  width: fit-content;
+}
+
+thead {
   color: gray;
-  font-family:robot "Helvetica Neue",sans-serif;
+  font-family: robot "Helvetica Neue", sans-serif;
   font-size: 12px;
-
-}
-tr{
-  font-family:robot "Helvetica Neue",sans-serif!important;
-  background-color: white!important;
-  font-size: 14px!important;
 }
 
-.inputSearch{
+th {
+  text-align: left;
+  padding: 0 0.2em;
+}
+
+tr {
+  font-family: robot "Helvetica Neue", sans-serif !important;
+  background-color: white !important;
+  font-size: 14px !important;
+}
+
+.inputSearch {
   width: 25%;
- margin-left: 37.5%;
- border:0px;
- border-bottom:solid 0.5px;
- font-size: 14px;
-margin-top:15px;
-margin-bottom:15px;
-
+  margin-left: 37.5%;
+  border: 0px;
+  border-bottom: solid 0.5px;
+  font-size: 14px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

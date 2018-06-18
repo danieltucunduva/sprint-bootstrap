@@ -1,24 +1,23 @@
 <input class="inputSearch" [(ngModel)]="searchText" placeholder="Filter by length, status, date or description">
-
-<table class="table table-striped" [mfData]="dataSource.data" #mf="mfDataTable" [mfRowsOnPage]="10">
+<table [mfData]="dataSource.data" #mf="mfDataTable" [mfRowsOnPage]="10">
   <thead>
     <tr>
-      <th style="width: 10%">
+      <th style="width: 12%; min-width: 10em;">
         <mfDefaultSorter by="name">Length</mfDefaultSorter>
       </th>
-      <th style="width: 8%">
+      <th style="width: 12%; min-width: 10em;">
         <mfDefaultSorter by="status">Status</mfDefaultSorter>
       </th>
-      <th style="width: 8%">
+      <th style="width: 12%; min-width: 6em;">
         <mfDefaultSorter by="startedAt">Date</mfDefaultSorter>
       </th>
-      <th style="width: 8%">
+      <th style="width: 12%; min-width: 6em;">
         <mfDefaultSorter by="startedAt">Start</mfDefaultSorter>
       </th>
-      <th style="width: 8%">
+      <th style="width: 12%; min-width: 6em;">
         <mfDefaultSorter by="finishedAt">Finish</mfDefaultSorter>
       </th>
-      <th style="width: 60%">
+      <th style="width: 40%; min-width: 10em;">
         <mfDefaultSorter by="description">Description</mfDefaultSorter>
       </th>
 
