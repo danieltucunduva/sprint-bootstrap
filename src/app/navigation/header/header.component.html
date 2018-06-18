@@ -17,8 +17,8 @@
   <div fxFlex="8 8 70%" fxHide.gt-xs fxLayout fxLayoutAlign="center center">
     <a class='app-name' style="cursor: default">≡Sprint</a>
   </div>
-  <div fxFlex="1 0 20%" fxLayout fxLayoutAlign="center center">
-    <div fxLayout fxLayoutAlign="center center">
+  <div fxFlex="1 0 20%" fxLayout fxLayoutAlign="end center">
+    <div fxLayout fxLayoutAlign="end">
       <a *ngIf="!isAuthenticated" (click)="login()" fxHide.xs>Login</a>
       <a *ngIf="isAuthenticated" routerLink="/sprint" fxHide.xs>Sprints</a>
       <a *ngIf="isAuthenticated" style="cursor: pointer" (click)="onClickLogout()" fxHide.xs>Logout</a>
