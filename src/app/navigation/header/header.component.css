@@ -1,7 +1,7 @@
 img {
   text-decoration: none;
-  padding: 0.6em;
-  height: 64px;
+  padding: 0.7em;
+  height: 40px;
   pointer-events: none;
 }
 
@@ -13,6 +13,7 @@ a {
   color: white;
   font-weight: 400;
   padding: 0em 0.5em;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]):hover,
@@ -37,4 +38,8 @@ a:not([href]):not([tabindex]):focus {
   background-color: #3f51b5;
   height: 64px;
   font-size: 15pt;
+}
+
+.header-links {
+  padding-right: 0.5em;
 }

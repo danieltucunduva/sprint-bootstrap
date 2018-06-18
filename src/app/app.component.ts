@@ -47,5 +47,4 @@ export class AppComponent {
   getActivatedRouteState(routerOutletRef) {
     return routerOutletRef.activatedRouteData.state;
   }
-
 }

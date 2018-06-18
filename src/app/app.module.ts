@@ -27,8 +27,6 @@ import localeFr from '@angular/common/locales/fr';
 import { VersionTagComponent } from './welcome/version-tag/version-tag.component';
 import { StopSprintDialogComponent } from './sprint/ongoing-sprint/stop-sprint-dialog/stop-sprint-dialog.component';
 
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
-
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
@@ -56,8 +54,7 @@ registerLocaleData(localeFr, 'fr');
     AppRoutingModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule,
-    MDBBootstrapModule.forRoot()
+    ReactiveFormsModule
   ],
   providers: [
     AuthenticationService,
