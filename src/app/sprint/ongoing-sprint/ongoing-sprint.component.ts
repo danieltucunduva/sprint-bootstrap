@@ -54,14 +54,18 @@ export class OngoingSprintComponent implements OnInit {
     this.cancelSprintDialogNgClass = 'dialog-show';
     this.dimmerNgClass = 'dimmer-show';
     clearInterval(this.timer);
-    // const dialogRef = this.dialog.open(StopSprintDialogComponent);
-    // dialogRef.afterClosed().subscribe(response => {
-    //   if (response) {
-    //     this.sprintService.finishSprint(false, this.progressSpinnerValue);
-    //   } else {
-    //     this.startOrResumeProgressTimer();
-    //   }
-    // });
+  }
+
+  onClickStopSprintConfirm() {
+    this.sprintService.finishSprint(false, this.progressSpinnerValue);
+    this.cancelSprintDialogNgClass = 'dialog-hide';
+    this.dimmerNgClass = 'dimmer-hide';
+  }
+
+  onClickStopSprintCancel() {
+    this.startOrResumeProgressTimer();
+    this.cancelSprintDialogNgClass = 'dialog-hide';
+    this.dimmerNgClass = 'dimmer-hide';
   }
 
 }
