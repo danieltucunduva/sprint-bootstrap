@@ -45,7 +45,6 @@ export class NewSprintComponent implements OnInit {
     }
   }
 
-
   private getAvailableSprints() {
     this.sprintService.getAvailableSprints()
       .pipe(map(response => response.json()))

@@ -1,5 +1,5 @@
 <section fxLayout="column" fxLayoutAlign="top">
-  <form (ngSubmit)="onSubmitNewSprintForm()" [formGroup]="newSprintForm" fxLayoutAlign="center center">
+  <form #newSprintFormRef (ngSubmit)="onSubmitNewSprintForm()" [formGroup]="newSprintForm" fxLayoutAlign="center center">
     <div class="card" fxLayout="column" fxLayoutGap="0.5em" fxLayoutAlign="center center">
       <h1>Start a sprint!</h1>
       <br>
@@ -38,7 +38,9 @@
         <div style="font-style: italic; padding-left: 0.5em;" *ngIf="!showNotificationCheckbox"> Notifications disabled by browser </div>
       </label>
       <br>
-      <div class="start-button" (click)="newSprintForm.submit" color="primary" [ngClass]="!newSprintForm.valid? 'disabled' : ''">Start</div>
+      <div class="start-button" color="primary" [ngClass]="!newSprintForm.valid? 'disabled' : ''">
+        <button class="button-content" type="submit">Start</button>
+      </div>
     </div>
   </form>
 </section>

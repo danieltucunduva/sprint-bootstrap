@@ -32,21 +32,30 @@ label {
   color: rgba(0, 0, 0, 0.5);
 }
 
+.button-content {
+  background: transparent;
+  color: inherit;
+  border: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font: inherit;
+}
+
 .start-button {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 0.6em 2em;
   background-color: #3f51b5;
   color: white;
   outline: none;
-  padding: 0.6em 2em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
   border-radius: 2px;
-  font-size: 12pt;
+  font-size: 11pt;
   text-decoration: none;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s
+  transition: background-color 0.3s;
 }
 
 .start-button.disabled {
