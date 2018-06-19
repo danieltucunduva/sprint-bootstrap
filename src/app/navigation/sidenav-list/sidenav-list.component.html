@@ -1,6 +1,6 @@
 <div class="sidenav">
   <a routerLink="/" (click)="onClickNavListItem()">Home</a>
-  <a *ngIf=" !isAuthenticated " (click)="login()" (click)="onClickNavListItem()">Login</a>
+  <a *ngIf=" !isAuthenticated " (click)="login()" (click)="onClickNavListItem()" style="cursor: pointer;">Login</a>
   <a *ngIf="isAuthenticated" routerLink="/sprint" (click)="onClickNavListItem()">Sprints</a>
-  <a *ngIf="isAuthenticated" (click)="onClickLogout()" (click)="onClickNavListItem()">Logout</a>
+  <a *ngIf="isAuthenticated" (click)="onClickLogout()" (click)="onClickNavListItem()" style="cursor: pointer;">Logout</a>
 </div>

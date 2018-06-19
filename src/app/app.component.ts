@@ -39,6 +39,7 @@ import { trigger, state, style, transition, animate, keyframes, query, group } f
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  applyClassToMain = '';
 
   constructor(private authenticationService: AuthenticationService) {
     this.authenticationService.handleLoginCallback();
@@ -46,5 +47,15 @@ export class AppComponent {
 
   getActivatedRouteState(routerOutletRef) {
     return routerOutletRef.activatedRouteData.state;
+  }
+
+  onCloseSidenav(sidenav) {
+    sidenav.hidden = true;
+    this.applyClassToMain = '';
+  }
+
+  onShowSidenav(sidenav) {
+    sidenav.hidden = false;
+    this.applyClassToMain = 'transparent';
   }
 }

@@ -1,6 +1,6 @@
 <section fxLayout fxLayoutAlign="center center" class="new-sprint">
   <form (ngSubmit)="onSubmitNewSprintForm()" [formGroup]="newSprintForm" fxLayoutAlign="center center">
-    <div class="card" fxLayout="column" fxLayoutGap="0.5em">
+    <div class="card" fxLayout="column" fxLayoutGap="0.5em" style="position: relative;" fxLayoutAlign="center center">
       <h1>Start a sprint!</h1>
       <br>
       <div class="select">
@@ -27,10 +27,16 @@
         <input type="checkbox" *ngIf="showNotificationCheckbox" formControlName="notify">
         <span *ngIf="showNotificationCheckbox"> Notify when completed</span>
         <input type="checkbox" *ngIf="!showNotificationCheckbox" formControlName="notifyDisabled">
-        <span *ngIf="!showNotificationCheckbox"> Notifications disabled by browser</span>
+        <div></div>
+      </label>
+      <label fxLayoutAlign="end center">
+        <div style="float: left;">
+          <input type="checkbox" *ngIf="!showNotificationCheckbox" formControlName="notifyDisabled">
+        </div>
+        <div style="font-style: italic; padding-left: 0.5em;" *ngIf="!showNotificationCheckbox"> Notifications disabled by browser </div>
       </label>
       <br>
-      <button type="submit" mat-raised-button color="primary" [disabled]="!newSprintForm.valid">Start</button>
+      <button style="position: absolute; bottom: 0.5em; left: auto" type="submit" mat-raised-button color="primary" [disabled]="!newSprintForm.valid">Start</button>
     </div>
   </form>
 </section>

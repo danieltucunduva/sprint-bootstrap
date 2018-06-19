@@ -5,9 +5,16 @@ import { AuthenticationService } from '../authentication/authentication.service'
 import { MatDialog } from '@angular/material';
 import { SprintFinishedDialogComponent } from './ongoing-sprint/sprint-finished-dialog/sprint-finished-dialog.component';
 import { DeleteDataDialogComponent } from './past-sprints/delete-data-dialog/delete-data-dialog.component';
+import { trigger, style, query, group, state, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-sprint',
+  animations: [
+    trigger('flyInOutTabs', [
+      state('new', style({ transform: 'translateX(0)' })),
+      state('past', style({ transform: 'translateX(100)' })),
+    ])
+  ],
   templateUrl: './sprint.component.html',
   styleUrls: ['./sprint.component.css']
 })
@@ -17,6 +24,7 @@ export class SprintComponent implements OnInit {
   tabIndex = 0;
   pastSprintsSubscription: Subscription;
   availableSprintsSubscription: Subscription;
+  flyInOutTabs = 'past';
 
   constructor(
     private sprintService: SprintService,
@@ -61,11 +69,12 @@ export class SprintComponent implements OnInit {
 
   onClickPastSprintsTabHeader() {
     this.tabIndex = 0;
+    this.flyInOutTabs = 'past';
   }
 
   onClickNewSprintTabHeader() {
     this.tabIndex = 1;
+    this.flyInOutTabs = 'new';
   }
-
 
 }

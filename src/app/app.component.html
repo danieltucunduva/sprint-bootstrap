@@ -1,10 +1,10 @@
 <div>
   <div #sidenav role="navigation" [hidden]="true">
-    <app-sidenav-list (closeSidenav)="sidenav.hidden = true"></app-sidenav-list>
+    <app-sidenav-list (closeSidenav)="onCloseSidenav(sidenav)"></app-sidenav-list>
   </div>
-  <div>
-    <app-header (sidenavToggle)="sidenav.hidden = false"></app-header>
-    <main [@flyInOut]="getActivatedRouteState(routerOutletRef)" (click)="sidenav.hidden = true">
+  <div [ngClass]="applyClassToMain">
+    <app-header (sidenavToggle)="onShowSidenav(sidenav)"></app-header>
+    <main [@flyInOut]="getActivatedRouteState(routerOutletRef)" (click)="onCloseSidenav(sidenav)">
       <router-outlet #routerOutletRef="outlet"></router-outlet>
     </main>
   </div>
