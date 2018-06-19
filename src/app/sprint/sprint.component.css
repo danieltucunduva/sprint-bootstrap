@@ -36,51 +36,66 @@
 }
 
 .tabcontent {
+  position: relative;
   padding: 1em;
   border: none;
-  transition: all 0.4s ease
+  transition: left 0.4s ease
 }
 
 .initPastSprints {
-  position: fixed;
+  position: relative;
   z-index: 1;
-  top: 8em;
-  left: 100em;
+  top: 0;
+  left: 150em;
   height: 100%;
   width: 100%;
-  transition: all 1s ease;
+  transition: left 0.4s ease;
 }
 
 .hidePastSprints {
-  position: fixed;
+  position: relative;
   z-index: 1;
-  left: -100em;
-  transition: all 0.4s ease;
+  top: 0;
+  left: -150em;
+  transition: left 0.4s ease;
+}
+
+.transparent {
+  position: relative;
+  z-index: 1;
+  top: 0;
+  left: -150em;
+  transition: left 0.4s ease;
+  opacity: 0;
 }
 
 .showPastSprints {
-  position: fixed;
+  position: relative;
   z-index: 1;
+  top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  transition: all 0.4s ease;
+  transition: left 0.4s ease;
+  opacity: 1;
 }
 
 .hideNewSprint {
-  position: fixed;
+  position: absolute;
   z-index: 1;
-  top: 8em;
-  left: 200em;
-  transition: all 0.4s ease;
+  top: 6em;
+  left: 150em;
+  height: 100%;
+  width: 100%;
+  transition: left 0.4s ease;
 }
 
 .showNewSprint {
-  position: fixed;
+  position: absolute;
   z-index: 1;
-  top: 8em;
+  top: 6em;
   left: 0;
   height: 100%;
   width: 100%;
-  transition: all 0.4s ease;
+  transition: left 0.4s ease;
 }

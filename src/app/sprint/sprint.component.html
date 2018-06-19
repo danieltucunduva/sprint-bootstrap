@@ -1,5 +1,5 @@
 <div>
-  <div [hidden]="ongoingSprint">
+  <div *ngIf="!ongoingSprint">
     <div class="tab">
       <button class="tablinks" (click)="onClickPastSprintsTabHeader()" class="{{tabIndex === 0 ? 'active':''}}">Past Sprints</button>
       <button class="tablinks" (click)="onClickNewSprintTabHeader()" class="{{tabIndex === 1 ? 'active':''}}">New Sprint</button>

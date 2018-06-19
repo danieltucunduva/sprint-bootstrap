@@ -21,7 +21,7 @@ import { trigger, state, style, transition, animate, keyframes, query, group } f
         ])
       ]),
       transition('sprint => home', [
-        query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
+        query(':enter, :leave', style({ position: 'fixed', height: '100%', width: '100%' }), { optional: true }),
         group([
           query(':enter', [
             style({ transform: 'translateX(-100%)' }),

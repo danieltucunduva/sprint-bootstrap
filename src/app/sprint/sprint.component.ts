@@ -77,6 +77,7 @@ export class SprintComponent implements OnInit, AfterViewInit {
     if (this.tabIndex === 0) {
       this.pastSprintsNgClass = 'hidePastSprints';
       this.newSprintNgClass = 'showNewSprint';
+      setTimeout(() => { this.pastSprintsNgClass = 'transparent'; }, 400);
     }
     this.tabIndex = 1;
   }

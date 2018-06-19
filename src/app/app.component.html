@@ -2,7 +2,7 @@
   <div #sidenav role="navigation" [ngClass]="applyClassToSidenav" style="transition: all 0.2s;">
     <app-sidenav-list (closeSidenav)="onCloseSidenav(dimmer)"></app-sidenav-list>
   </div>
-  <div>
+  <div style="position: relative;">
     <app-header (sidenavToggle)="onShowSidenav(dimmer)"></app-header>
     <main [@flyInOut]="getActivatedRouteState(routerOutletRef)" (click)="onCloseSidenav(dimmer)">
       <router-outlet #routerOutletRef="outlet"></router-outlet>
