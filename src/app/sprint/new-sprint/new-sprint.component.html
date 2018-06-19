@@ -38,7 +38,7 @@
         <div style="font-style: italic; padding-left: 0.5em;" *ngIf="!showNotificationCheckbox"> Notifications disabled by browser </div>
       </label>
       <br>
-      <button style="position: relative; bottom: 0.1em; left: auto" type="submit" mat-raised-button color="primary" [disabled]="!newSprintForm.valid">Start</button>
+      <div class="start-button" (click)="newSprintForm.submit" color="primary" [ngClass]="!newSprintForm.valid? 'disabled' : ''">Start</div>
     </div>
   </form>
 </section>
