@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SprintService } from './sprint.service';
 import { AuthenticationService } from '../authentication/authentication.service';
@@ -10,13 +10,13 @@ import { DeleteDataDialogComponent } from './past-sprints/delete-data-dialog/del
   templateUrl: './sprint.component.html',
   styleUrls: ['./sprint.component.css']
 })
-export class SprintComponent implements OnInit {
+export class SprintComponent implements OnInit, AfterViewInit {
   ongoingSprint = false;
   sprintSubscription: Subscription;
   tabIndex = 0;
   pastSprintsSubscription: Subscription;
   availableSprintsSubscription: Subscription;
-  pastSprintsNgClass = 'showPastSprints';
+  pastSprintsNgClass = 'initPastSprints';
   newSprintNgClass = 'hideNewSprint';
 
   constructor(
@@ -32,8 +32,6 @@ export class SprintComponent implements OnInit {
       } else {
         this.ongoingSprint = false;
         this.tabIndex = 0;
-        this.newSprintNgClass = 'hideNewSprint';
-        this.pastSprintsNgClass = 'showPastSprints';
       }
     });
     this.pastSprintsSubscription = this.sprintService.pastSprintsChanged.subscribe(sprint => {
@@ -48,6 +46,10 @@ export class SprintComponent implements OnInit {
         this.tabIndex = 1;
       }
     });
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => { this.pastSprintsNgClass = 'showPastSprints'; }, 400);
   }
 
   sprintStop() {

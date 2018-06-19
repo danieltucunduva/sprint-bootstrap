@@ -28,7 +28,7 @@ h1 {
 }
 
 textarea {
-  width: 12.5em;
+  width: 100%;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-size: 11pt;
   border-radius: 4px;
@@ -46,6 +46,7 @@ select {
 
 .label-hint-valid {
   text-align: right;
+  width: 100%;
 }
 
 .select {
