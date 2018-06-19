@@ -13,6 +13,8 @@ export class OngoingSprintComponent implements OnInit {
   progressSpinnerValue = 0;
   timer = 0;
   @Output() sprintStop = new EventEmitter<void>();
+  cancelSprintDialogNgClass = 'dialog-hide';
+  dimmerNgClass = 'dimmer-hide';
 
   constructor(private dialog: MatDialog, private sprintService: SprintService) { }
 
@@ -49,15 +51,17 @@ export class OngoingSprintComponent implements OnInit {
   }
 
   onClickStopSprint() {
+    this.cancelSprintDialogNgClass = 'dialog-show';
+    this.dimmerNgClass = 'dimmer-show';
     clearInterval(this.timer);
-    const dialogRef = this.dialog.open(StopSprintDialogComponent);
-    dialogRef.afterClosed().subscribe(response => {
-      if (response) {
-        this.sprintService.finishSprint(false, this.progressSpinnerValue);
-      } else {
-        this.startOrResumeProgressTimer();
-      }
-    });
+    // const dialogRef = this.dialog.open(StopSprintDialogComponent);
+    // dialogRef.afterClosed().subscribe(response => {
+    //   if (response) {
+    //     this.sprintService.finishSprint(false, this.progressSpinnerValue);
+    //   } else {
+    //     this.startOrResumeProgressTimer();
+    //   }
+    // });
   }
 
 }

@@ -9,6 +9,10 @@
   <div (click)="onClickStopSprint()" class="start-button" color="primary">
     <button class="button-content" type="submit">Stop</button>
   </div>
+  <div [ngClass]="cancelSprintDialogNgClass">
+    <h3 style="text-align: center;">On hold. Cancel sprint?</h3>
+  </div>
+  <div [ngClass]="dimmerNgClass"></div>
 </section>
 
 <app-logged-user-name></app-logged-user-name>
