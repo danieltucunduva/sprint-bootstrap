@@ -1,6 +1,6 @@
-<section fxLayout="column" fxLayoutAlign="top">
-  <form (ngSubmit)="onSubmitNewSprintForm()" [formGroup]="newSprintForm" fxLayoutAlign="center center">
-    <div class="card" fxLayout="column" fxLayoutGap="0.5em" fxLayoutAlign="center center">
+<section fxLayout="column" fxLayoutAlign="top center">
+  <form (ngSubmit)="onSubmitNewSprintForm()" [formGroup]="newSprintForm" fxLayoutAlign="center center" fxLayout="column">
+    <div class="card" fxLayout="column" fxLayoutGap="0.5em" fxLayoutAlign="top center">
       <h1>Start a sprint!</h1>
       <br>
       <div class="select">
@@ -14,7 +14,7 @@
           <label>{{newSprintForm.get('selectedSprint').valid ? '✔' : 'Required'}}</label>
         </div>
       </div>
-      <div fxLayout="column" style="width:100%;">
+      <div fxLayout="column" style="width:100%; padding-bottom: 0.5em;">
         <div class="label-hint">
           <label>Description *</label>
         </div>
@@ -24,20 +24,15 @@
         </div>
       </div>
       <div>
-        <label class="material-checkbox">
+        <label class="material-checkbox" style="float: left;">
           <input type="checkbox" *ngIf="showNotificationCheckbox" formControlName="notify">
-          <span *ngIf="showNotificationCheckbox"> Notify when completed</span>
           <input type="checkbox" *ngIf="!showNotificationCheckbox" formControlName="notifyDisabled">
-          <div></div>
+          <span style="float: right;" [ngClass]="showNotificationCheckbox ? '' : 'line-through'"> Notify when completed </span>
         </label>
       </div>
-      <label fxLayoutAlign="end center">
-        <div style="float: left;">
-          <input type="checkbox" *ngIf="!showNotificationCheckbox" formControlName="notifyDisabled">
-        </div>
-        <div style="font-style: italic; padding-left: 0.5em;" *ngIf="!showNotificationCheckbox"> Notifications disabled by browser </div>
+      <label fxLayoutAlign="center center">
+        <div style="font-style: italic; padding-left: 0.5em;"> {{showNotificationCheckbox ? ' &nbsp;' : 'Notifications disabled by browser'}}</div>
       </label>
-      <br>
       <div class="start-button" color="primary" [ngClass]="!newSprintForm.valid? 'disabled' : ''">
         <button class="button-content" type="submit">Start</button>
       </div>

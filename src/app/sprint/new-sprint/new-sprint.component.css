@@ -8,10 +8,11 @@
   height: 24em;
   box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
-  padding: 0 2em 1em 2em;
+  padding: 0 2em 0.5em 2em;
 }
 
 h1 {
+  margin-top: 1em;
   text-align: center;
   font-size: 19pt;
   font-weight: 500;
@@ -30,6 +31,10 @@ label {
   width: 100%;
   font-size: 9pt;
   color: rgba(0, 0, 0, 0.5);
+}
+
+.line-through {
+  color: lightgray;
 }
 
 .button-content {
@@ -244,7 +249,6 @@ select {
 .material-checkbox>span::before {
   content: "";
   display: inline-block;
-  /* margin-right: 15px; */
   border: solid 2px rgba(0, 0, 0, 0.42);
   border-radius: 2px;
   width: 1em;

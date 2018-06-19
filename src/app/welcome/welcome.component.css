@@ -3,10 +3,6 @@ section {
   padding-top: 3em;
 }
 
-mat-card-title {
-  padding: 0.5em;
-}
-
 p {
   font-size: 11pt;
   max-width: 15em;
@@ -43,10 +39,10 @@ footer {
 
 .card {
   width: 16em;
-  height: 22em;
+  height: 24em;
   box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
-  padding: 0 2em 1em 2em;
+  padding: 0 2em 0.5em 2em;
 }
 
 h1 {
