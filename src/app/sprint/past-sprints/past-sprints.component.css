@@ -1,4 +1,4 @@
-table {
+/* table {
   width: fit-content;
   overflow-x: scroll;
 }
@@ -18,7 +18,7 @@ tr {
   font-family: robot "Helvetica Neue", sans-serif !important;
   background-color: white !important;
   font-size: 14px !important;
-}
+} */
 
 .inputSearch {
   width: 20em;

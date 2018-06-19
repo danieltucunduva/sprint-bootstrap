@@ -1,21 +1,22 @@
 <div>
-  <div class="tab">
-    <button class="tablinks" (click)="onClickPastSprintsTabHeader()" class="{{tabIndex === 0 ? 'active':''}}">Past Sprints</button>
-    <button class="tablinks" (click)="onClickNewSprintTabHeader()" class="{{tabIndex === 1 ? 'active':''}}">New Sprint</button>
-  </div>
-
-  <div class="tabcontent" [ngClass]="pastSprintsNgClass">
-    <app-past-sprints></app-past-sprints>
-    <div style="width: 100%; text-align: center;">
-      <button class="delete-user" type="submit" mat-button color="warn" (click)="onClickDeleteData()">Delete all data</button>
+  <div [hidden]="ongoingSprint">
+    <div class="tab">
+      <button class="tablinks" (click)="onClickPastSprintsTabHeader()" class="{{tabIndex === 0 ? 'active':''}}">Past Sprints</button>
+      <button class="tablinks" (click)="onClickNewSprintTabHeader()" class="{{tabIndex === 1 ? 'active':''}}">New Sprint</button>
     </div>
-    <app-logged-user-name></app-logged-user-name>
-  </div>
 
-  <div class="tabcontent" [ngClass]="newSprintNgClass">
-    <app-new-sprint></app-new-sprint>
-    <app-logged-user-name></app-logged-user-name>
-  </div>
+    <div class="tabcontent" [ngClass]="pastSprintsNgClass">
+      <app-past-sprints></app-past-sprints>
+      <div style="width: 100%; text-align: center;">
+        <button class="delete-user" type="submit" mat-button color="warn" (click)="onClickDeleteData()">Delete all data</button>
+      </div>
+      <app-logged-user-name></app-logged-user-name>
+    </div>
 
+    <div class="tabcontent" [ngClass]="newSprintNgClass">
+      <app-new-sprint></app-new-sprint>
+      <app-logged-user-name></app-logged-user-name>
+    </div>
+  </div>
   <app-ongoing-sprint (sprintStop)="sprintStop()" *ngIf="ongoingSprint"></app-ongoing-sprint>
 </div>

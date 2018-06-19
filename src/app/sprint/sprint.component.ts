@@ -3,7 +3,6 @@ import { Subscription } from 'rxjs';
 import { SprintService } from './sprint.service';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { MatDialog } from '@angular/material';
-import { SprintFinishedDialogComponent } from './ongoing-sprint/sprint-finished-dialog/sprint-finished-dialog.component';
 import { DeleteDataDialogComponent } from './past-sprints/delete-data-dialog/delete-data-dialog.component';
 
 @Component({
@@ -32,6 +31,9 @@ export class SprintComponent implements OnInit {
         this.ongoingSprint = true;
       } else {
         this.ongoingSprint = false;
+        this.tabIndex = 0;
+        this.newSprintNgClass = 'hideNewSprint';
+        this.pastSprintsNgClass = 'showPastSprints';
       }
     });
     this.pastSprintsSubscription = this.sprintService.pastSprintsChanged.subscribe(sprint => {
@@ -49,7 +51,7 @@ export class SprintComponent implements OnInit {
   }
 
   sprintStop() {
-    this.ongoingSprint = false;
+    this.tabIndex = 0;
   }
 
   onClickDeleteData() {
