@@ -39,7 +39,7 @@ import { trigger, state, style, transition, animate, keyframes, query, group } f
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  applyClassToMain = '';
+  applyClassToSidenav = 'hide-sidenav';
 
   constructor(private authenticationService: AuthenticationService) {
     this.authenticationService.handleLoginCallback();
@@ -49,13 +49,13 @@ export class AppComponent {
     return routerOutletRef.activatedRouteData.state;
   }
 
-  onCloseSidenav(sidenav) {
-    sidenav.hidden = true;
-    this.applyClassToMain = '';
+  onCloseSidenav(dimmer) {
+    dimmer.hidden = true;
+    this.applyClassToSidenav = 'hide-sidenav';
   }
 
-  onShowSidenav(sidenav) {
-    sidenav.hidden = false;
-    this.applyClassToMain = 'transparent';
+  onShowSidenav(dimmer) {
+    dimmer.hidden = false;
+    this.applyClassToSidenav = 'transition';
   }
 }

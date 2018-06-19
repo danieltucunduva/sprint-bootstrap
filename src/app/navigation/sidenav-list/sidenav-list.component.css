@@ -1,15 +1,10 @@
 .sidenav {
   height: 100%;
-  width: 10em;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
+  width: 100%;
   background-color:white;
-  opacity: 0.9;
+  opacity: 1;
   overflow-x: hidden;
   padding-top: 1em;
-  transition: 0.5s;
 }
 
 .sidenav a {

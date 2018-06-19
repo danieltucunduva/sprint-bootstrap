@@ -1,11 +1,12 @@
 <div>
-  <div #sidenav role="navigation" [hidden]="true">
-    <app-sidenav-list (closeSidenav)="onCloseSidenav(sidenav)"></app-sidenav-list>
+  <div #sidenav role="navigation" [ngClass]="applyClassToSidenav" style="transition: all 0.2s;">
+    <app-sidenav-list (closeSidenav)="onCloseSidenav(dimmer)"></app-sidenav-list>
   </div>
-  <div [ngClass]="applyClassToMain">
-    <app-header (sidenavToggle)="onShowSidenav(sidenav)"></app-header>
-    <main [@flyInOut]="getActivatedRouteState(routerOutletRef)" (click)="onCloseSidenav(sidenav)">
+  <div>
+    <app-header (sidenavToggle)="onShowSidenav(dimmer)"></app-header>
+    <main [@flyInOut]="getActivatedRouteState(routerOutletRef)" (click)="onCloseSidenav(dimmer)">
       <router-outlet #routerOutletRef="outlet"></router-outlet>
     </main>
   </div>
+  <div #dimmer [hidden]='true' class='dimmer' (click)="onCloseSidenav(dimmer)"></div>
 </div>

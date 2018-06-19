@@ -8,6 +8,32 @@ a:active {
   color: lightgray;
 }
 
-.transparent {
-  opacity: 0.5;
+.dimmer {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+  background: black;
+}
+
+.transition {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 10em;
+  height: 100%;
+  transition: all 1s linear;
+}
+
+.hide-sidenav {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: -10em;
+  width: 10em; 
+  transition: all 1s linear;
 }
