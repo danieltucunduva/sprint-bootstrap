@@ -1,6 +1,6 @@
-<section fxLayout fxLayoutAlign="center center" class="new-sprint">
+<section fxLayout="column" fxLayoutAlign="top">
   <form (ngSubmit)="onSubmitNewSprintForm()" [formGroup]="newSprintForm" fxLayoutAlign="center center">
-    <div class="card" fxLayout="column" fxLayoutGap="0.5em">
+    <div class="card" fxLayout="column" fxLayoutGap="0.5em" fxLayoutAlign="center center">
       <h1>Start a sprint!</h1>
       <br>
       <div class="select">
@@ -14,7 +14,7 @@
           <label>{{newSprintForm.get('selectedSprint').valid ? '✔' : 'Required'}}</label>
         </div>
       </div>
-      <div>
+      <div fxLayout="column" style="width:100%;">
         <div class="label-hint">
           <label>Description *</label>
         </div>
@@ -23,14 +23,22 @@
           <label>{{newSprintForm.get('description').valid ? '✔' : 'Required'}}</label>
         </div>
       </div>
-      <label class="material-checkbox">
-        <input type="checkbox" *ngIf="showNotificationCheckbox" formControlName="notify">
-        <span *ngIf="showNotificationCheckbox"> Notify when completed</span>
-        <input type="checkbox" *ngIf="!showNotificationCheckbox" formControlName="notifyDisabled">
-        <span *ngIf="!showNotificationCheckbox"> Notifications disabled by browser</span>
+      <div>
+        <label class="material-checkbox">
+          <input type="checkbox" *ngIf="showNotificationCheckbox" formControlName="notify">
+          <span *ngIf="showNotificationCheckbox"> Notify when completed</span>
+          <input type="checkbox" *ngIf="!showNotificationCheckbox" formControlName="notifyDisabled">
+          <div></div>
+        </label>
+      </div>
+      <label fxLayoutAlign="end center">
+        <div style="float: left;">
+          <input type="checkbox" *ngIf="!showNotificationCheckbox" formControlName="notifyDisabled">
+        </div>
+        <div style="font-style: italic; padding-left: 0.5em;" *ngIf="!showNotificationCheckbox"> Notifications disabled by browser </div>
       </label>
       <br>
-      <button type="submit" mat-raised-button color="primary" [disabled]="!newSprintForm.valid">Start</button>
+      <div class="start-button" (click)="newSprintForm.submit" color="primary" [ngClass]="!newSprintForm.valid? 'disabled' : ''">Start</div>
     </div>
   </form>
 </section>

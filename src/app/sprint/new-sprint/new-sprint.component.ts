@@ -11,7 +11,7 @@ import { AuthenticationService } from '../../authentication/authentication.servi
   styleUrls: ['./new-sprint.component.css']
 })
 export class NewSprintComponent implements OnInit {
-  showNotificationCheckbox = false;
+  showNotificationCheckbox = true;
   newSprintForm = new FormGroup({
     selectedSprint: new FormControl('', { validators: [Validators.required] }),
     notify: new FormControl({ value: true }, {}),
@@ -38,6 +38,8 @@ export class NewSprintComponent implements OnInit {
       Notification.requestPermission(permission => {
         if (permission === 'granted') {
           this.showNotificationCheckbox = true;
+        } else {
+          this.showNotificationCheckbox = false;
         }
       });
     }

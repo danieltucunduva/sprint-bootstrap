@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SprintService } from './sprint.service';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { MatDialog } from '@angular/material';
-import { SprintFinishedDialogComponent } from './ongoing-sprint/sprint-finished-dialog/sprint-finished-dialog.component';
 import { DeleteDataDialogComponent } from './past-sprints/delete-data-dialog/delete-data-dialog.component';
 
 @Component({
@@ -11,12 +10,14 @@ import { DeleteDataDialogComponent } from './past-sprints/delete-data-dialog/del
   templateUrl: './sprint.component.html',
   styleUrls: ['./sprint.component.css']
 })
-export class SprintComponent implements OnInit {
+export class SprintComponent implements OnInit, AfterViewInit {
   ongoingSprint = false;
   sprintSubscription: Subscription;
   tabIndex = 0;
   pastSprintsSubscription: Subscription;
   availableSprintsSubscription: Subscription;
+  pastSprintsNgClass = 'initPastSprints';
+  newSprintNgClass = 'hideNewSprint';
 
   constructor(
     private sprintService: SprintService,
@@ -30,6 +31,7 @@ export class SprintComponent implements OnInit {
         this.ongoingSprint = true;
       } else {
         this.ongoingSprint = false;
+        this.tabIndex = 0;
       }
     });
     this.pastSprintsSubscription = this.sprintService.pastSprintsChanged.subscribe(sprint => {
@@ -46,8 +48,12 @@ export class SprintComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit() {
+    setTimeout(() => { this.pastSprintsNgClass = 'showPastSprints'; }, 400);
+  }
+
   sprintStop() {
-    this.ongoingSprint = false;
+    this.tabIndex = 0;
   }
 
   onClickDeleteData() {
@@ -60,12 +66,20 @@ export class SprintComponent implements OnInit {
   }
 
   onClickPastSprintsTabHeader() {
+    if (this.tabIndex === 1) {
+      this.newSprintNgClass = 'hideNewSprint';
+      this.pastSprintsNgClass = 'showPastSprints';
+    }
     this.tabIndex = 0;
   }
 
   onClickNewSprintTabHeader() {
+    if (this.tabIndex === 0) {
+      this.pastSprintsNgClass = 'hidePastSprints';
+      this.newSprintNgClass = 'showNewSprint';
+      setTimeout(() => { this.pastSprintsNgClass = 'transparent'; }, 400);
+    }
     this.tabIndex = 1;
   }
-
 
 }

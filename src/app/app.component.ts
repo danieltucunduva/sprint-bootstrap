@@ -12,24 +12,24 @@ import { trigger, state, style, transition, animate, keyframes, query, group } f
         group([
           query(':enter', [
             style({ transform: 'translateX(100%)' }),
-            animate('0.5s ease-in-out', style({ transform: 'translateX(0%)' }))
+            animate('0.4s ease-in-out', style({ transform: 'translateX(0%)' }))
           ], { optional: true }),
           query(':leave', [
             style({ transform: 'translateX(0%)' }),
-            animate('0.5s ease-in-out', style({ transform: 'translateX(-100%)' }))
+            animate('0.4s ease-in-out', style({ transform: 'translateX(-100%)' }))
           ], { optional: true }),
         ])
       ]),
       transition('sprint => home', [
-        query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
+        query(':enter, :leave', style({ position: 'fixed', height: '100%', width: '100%' }), { optional: true }),
         group([
           query(':enter', [
             style({ transform: 'translateX(-100%)' }),
-            animate('0.5s ease-in-out', style({ transform: 'translateX(0%)' }))
+            animate('0.4s ease-in-out', style({ transform: 'translateX(0%)' }))
           ], { optional: true }),
           query(':leave', [
             style({ transform: 'translateX(0%)' }),
-            animate('0.5s ease-in-out', style({ transform: 'translateX(100%)' }))
+            animate('0.4s ease-in-out', style({ transform: 'translateX(100%)' }))
           ], { optional: true }),
         ])
       ])
@@ -39,6 +39,7 @@ import { trigger, state, style, transition, animate, keyframes, query, group } f
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  applyClassToSidenav = 'hide-sidenav';
 
   constructor(private authenticationService: AuthenticationService) {
     this.authenticationService.handleLoginCallback();
@@ -46,5 +47,15 @@ export class AppComponent {
 
   getActivatedRouteState(routerOutletRef) {
     return routerOutletRef.activatedRouteData.state;
+  }
+
+  onCloseSidenav(dimmer) {
+    dimmer.hidden = true;
+    this.applyClassToSidenav = 'hide-sidenav';
+  }
+
+  onShowSidenav(dimmer) {
+    dimmer.hidden = false;
+    this.applyClassToSidenav = 'transition';
   }
 }
