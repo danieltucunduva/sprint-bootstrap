@@ -1,6 +1,7 @@
 table {
-  width: fit-content;
+  width: 95%;
   overflow-x: scroll;
+  table-layout: fixed;
 }
 
 thead {
@@ -18,6 +19,12 @@ tr {
   font-family: robot "Helvetica Neue", sans-serif !important;
   background-color: white !important;
   font-size: 14px !important;
+}
+
+td {
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .inputSearch {
