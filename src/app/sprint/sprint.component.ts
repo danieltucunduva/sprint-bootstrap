@@ -28,10 +28,16 @@ export class SprintComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.sprintSubscription = this.sprintService.sprintChanged.subscribe(sprint => {
       if (sprint) {
-        this.ongoingSprint = true;
+        this.newSprintNgClass = 'hideNewSprint';
+        setTimeout(() => { this.ongoingSprint = true; }, 400);
       } else {
-        this.ongoingSprint = false;
+        this.newSprintNgClass = 'hideNewSprint';
+        this.pastSprintsNgClass = 'hidePastSprints';
         this.tabIndex = 0;
+        this.ongoingSprint = false;
+        setTimeout(() => {
+          this.pastSprintsNgClass = 'showPastSprints';
+        }, 200);
       }
     });
     this.pastSprintsSubscription = this.sprintService.pastSprintsChanged.subscribe(sprint => {

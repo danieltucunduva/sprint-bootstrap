@@ -1,5 +1,5 @@
 <section fxLayout="column" fxLayoutAlign="top">
-  <form #newSprintFormRef (ngSubmit)="onSubmitNewSprintForm()" [formGroup]="newSprintForm" fxLayoutAlign="center center">
+  <form (ngSubmit)="onSubmitNewSprintForm()" [formGroup]="newSprintForm" fxLayoutAlign="center center">
     <div class="card" fxLayout="column" fxLayoutGap="0.5em" fxLayoutAlign="center center">
       <h1>Start a sprint!</h1>
       <br>
