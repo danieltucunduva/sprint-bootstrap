@@ -74,6 +74,10 @@ select {
   cursor: pointer;
 }
 
+.label-hint {
+  padding-bottom: 0.3em;
+}
+
 .label-hint-valid {
   text-align: right;
   width: 100%;

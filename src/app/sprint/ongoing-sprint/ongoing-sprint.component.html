@@ -6,11 +6,19 @@
   <p *ngIf="progressSpinnerValue >= 100">Good job!</p>
   <br>
   <br>
-  <div (click)="onClickStopSprint()" class="start-button" color="primary">
+  <div (click)="onClickStopSprint()" class="button-stop">
     <button class="button-content" type="submit">Stop</button>
   </div>
   <div [ngClass]="cancelSprintDialogNgClass">
-    <h3 style="text-align: center;">On hold. Cancel sprint?</h3>
+    <h2 style="text-align: center;">On hold. Cancel sprint?</h2>
+    <div fxLayout="row" fxLayoutAlign="center end">
+      <div (click)="onClickStopSprintConfirm()" class="button-yes-no" style="background-color: #ff4081;">
+        <button class="button-content" type="submit">Yes</button>
+      </div>
+      <div (click)="onClickStopSprintCancel()" class="button-yes-no" style="background-color: #3f51b5;">
+        <button class="button-content" type="submit">No</button>
+      </div>
+    </div>
   </div>
   <div [ngClass]="dimmerNgClass"></div>
 </section>
