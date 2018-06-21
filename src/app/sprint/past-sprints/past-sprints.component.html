@@ -1,25 +1,24 @@
-<div style="width: 100%; padding: 0.5em 0;" fxLayoutAlign="center center">
-  <input class="inputSearch" [(ngModel)]="searchText" placeholder="Filter by length, status, date or description">
-</div>
-<table [mfData]="dataSource.data" #mf="mfDataTable" [mfRowsOnPage]="10">
+<input class="inputSearch" [(ngModel)]="searchText" placeholder="Filter by length, status, date or description">
+
+<table class="table table-striped" [mfData]="dataSource.data" #mf="mfDataTable" [mfRowsOnPage]="10">
   <thead>
     <tr>
-      <th style="width: 5em;">
+      <th style="width: 10%">
         <mfDefaultSorter by="name">Length</mfDefaultSorter>
       </th>
-      <th style="width: 5em;">
+      <th style="width: 8%">
         <mfDefaultSorter by="status">Status</mfDefaultSorter>
       </th>
-      <th style="width: 4em;">
+      <th style="width: 8%">
         <mfDefaultSorter by="startedAt">Date</mfDefaultSorter>
       </th>
-      <th style="width: 3em;">
+      <th style="width: 8%">
         <mfDefaultSorter by="startedAt">Start</mfDefaultSorter>
       </th>
-      <th style="width: 3em;">
+      <th style="width: 8%">
         <mfDefaultSorter by="finishedAt">Finish</mfDefaultSorter>
       </th>
-      <th style="width: 10em; padding-right: 1em;">
+      <th style="width: 60%">
         <mfDefaultSorter by="description">Description</mfDefaultSorter>
       </th>
 
@@ -38,7 +37,7 @@
   <tfoot>
     <tr>
       <td colspan="12">
-        <mfBootstrapPaginator style="float:right" [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
       </td>
     </tr>
   </tfoot>
