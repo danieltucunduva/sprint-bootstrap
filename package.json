@@ -37,7 +37,7 @@
     "auth0-js": "^9.6.1",
     "bluebird": "^3.5.1",
     "body-parser": "~1.17.1",
-    "bootstrap": "^4.1.1",
+    "bootstrap": "^3.3.7",
     "chart.js": "^2.5.0",
     "classlist.js": "^1.1.20150312",
     "cookie-parser": "~1.4.3",
