@@ -1,3 +1,7 @@
+body {
+  overflow-y: scroll;
+}
+
 .delete-user {
   margin-top: 4em;
   margin-bottom: 1.5em;
@@ -107,7 +111,7 @@
   background: white;
   top: 8em;
   left: 50%;
-  margin-left: -4em;
+  margin-left: -8em;
   width: 16em;
   height: 20em;
   padding: 1em 0.5em 0.5em 0.5em;

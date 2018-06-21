@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
-import { TermsDialogComponent } from '../welcome/terms-dialog/terms-dialog.component';
 
 @Component({
   selector: 'app-welcome',
@@ -8,14 +6,22 @@ import { TermsDialogComponent } from '../welcome/terms-dialog/terms-dialog.compo
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
+  termsAndConditionsDialogNgClass = 'dialog-hide';
+  dimmerNgClass = 'dimmer-hide';
 
-  constructor(private dialog: MatDialog) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
   onClickTermsAndConditions() {
-    this.dialog.open(TermsDialogComponent, { maxWidth: '20em' });
+    this.termsAndConditionsDialogNgClass = 'dialog-show';
+    this.dimmerNgClass = 'dimmer-show';
+  }
+
+  onClickCloseTermsAndConditions() {
+    this.termsAndConditionsDialogNgClass = 'dialog-hide';
+    this.dimmerNgClass = 'dimmer-hide';
   }
 
 }
