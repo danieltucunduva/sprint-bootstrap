@@ -19,11 +19,9 @@ export class SprintService {
   pastSprintsChanged = new Subject<boolean>();
   finishedSprintChanged = new Subject<ISprint>();
   availableSprintsChanged = new Subject<boolean>();
-  private sprints: ISprint[] = [];
   baseApiUrl = environment.baseApiUrl;
 
   private runningSprint: ISprint;
-  private pastSprints: ISprint[] = [];
 
   constructor(
     private http: Http,
@@ -101,7 +99,9 @@ export class SprintService {
             const sprintResponse = response.json().data as ISprint;
             sprintResponse.startedAt = new Date(sprintResponse.startedAt);
             sprintResponse.finishedAt = new Date(sprintResponse.startedAt);
-            this.finishedSprintChanged.next(sprintResponse);
+            if (sprintResponse.status === 'completed') {
+              this.finishedSprintChanged.next(sprintResponse);
+            }
             this.runningSprint = null;
             this.sprintChanged.next(null);
             this.pastSprintsChanged.next(true);

@@ -1,7 +1,7 @@
 <section fxLayout="column" fxLayoutAlign="top center">
   <form (ngSubmit)="onSubmitNewSprintForm()" [formGroup]="newSprintForm" fxLayoutAlign="center center" fxLayout="column">
     <div class="card" fxLayout="column" fxLayoutGap="0" fxLayoutAlign="top center">
-      <h1>Start a sprint!</h1>
+      <h4>Start a sprint!</h4>
       <br>
       <div class="select">
         <select class="select-text" formControlName="selectedSprint">
@@ -14,7 +14,7 @@
           <label>{{newSprintForm.get('selectedSprint').valid ? '✔' : 'Required'}}</label>
         </div>
       </div>
-      <div fxLayout="column" style="width:100%; padding-bottom: 0.5em;">
+      <div fxLayout="column" fxLayoutGap="0" style="width:100%; padding-bottom: 0.5em;">
         <div class="label-hint">
           <label>Description *</label>
         </div>
@@ -23,15 +23,18 @@
           <label>{{newSprintForm.get('description').valid ? '✔' : 'Required'}}</label>
         </div>
       </div>
-      <div>
-        <label class="material-checkbox" style="float: left;">
-          <input type="checkbox" *ngIf="showNotificationCheckbox" formControlName="notify">
-          <input type="checkbox" *ngIf="!showNotificationCheckbox" formControlName="notifyDisabled">
-          <span style="float: right;" [ngClass]="showNotificationCheckbox ? '' : 'line-through'"> Notify when completed </span>
-        </label>
+      <div style="position: relative;">
+        <div class="checkbox">
+          <label>
+            <input *ngIf="showNotificationCheckbox" type="checkbox" formControlName="notify">
+            <input *ngIf="!showNotificationCheckbox" type="checkbox" formControlName="notifyDisabled">
+            <span class="box"></span>
+            Notify when completed
+          </label>
+        </div>
       </div>
       <label fxLayoutAlign="center center">
-        <div style="font-style: italic; padding-left: 0.5em;"> {{showNotificationCheckbox ? ' &nbsp;' : 'Notifications disabled by browser'}}</div>
+        <div style="font-style: italic; color: rgb(110, 110, 110); padding-left: 0.5em;"> {{showNotificationCheckbox ? ' &nbsp;' : 'Notifications disabled by browser'}}</div>
       </label>
       <div class="start-button" color="primary" [ngClass]="!newSprintForm.valid? 'disabled' : ''">
         <button class="button-content" type="submit">Start</button>
