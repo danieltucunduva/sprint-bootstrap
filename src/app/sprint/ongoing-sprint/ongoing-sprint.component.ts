@@ -1,7 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { SprintFinishedDialogComponent } from './sprint-finished-dialog/sprint-finished-dialog.component';
-import { StopSprintDialogComponent } from './stop-sprint-dialog/stop-sprint-dialog.component';
 import { SprintService } from '../sprint.service';
 
 @Component({
