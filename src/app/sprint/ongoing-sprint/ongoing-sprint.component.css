@@ -1,14 +1,14 @@
+.ongoing-sprint {
+  padding: 5em;
+  z-index: 1;
+}
+
 .custom-header {
   font-family: inherit;
   font-size: 14.5pt;
   font-weight: 500;
   margin-top: 0.75em;
   margin-bottom: 1.5em;
-}
-
-.ongoing-sprint {
-  padding: 30px;
-  z-index: 1;
 }
 
 .button-content {
@@ -69,7 +69,7 @@
   left: 50%;
   top: 50%;
   margin-left: -7.5em;
-  margin-top: 4em;
+  margin-top: 6em;
   width: 15em;
   height: 8em;
   opacity: 1;
@@ -94,4 +94,101 @@
   background-color: black;
   opacity: 0.5;
   z-index: 1;
+}
+
+/* Progress spinner ================================================== */
+
+.progress {
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  background: none;
+  margin: 0 auto;
+  box-shadow: none;
+  position: relative;
+}
+
+.progress:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1.5em solid #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progress>span {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.progress .progress-left {
+  left: 0;
+}
+
+.progress .progress-bar {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border-width: 1.5em;
+  border-style: solid;
+  position: absolute;
+  top: 0;
+}
+
+.progress .progress-left .progress-bar {
+  left: 100%;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  border-left: 0;
+  -webkit-transform-origin: center left;
+  transform-origin: center left;
+}
+
+.progress .progress-right {
+  right: 0;
+}
+
+.progress.blue .progress-bar {
+  border-color: #3f51b5;
+}
+
+.progress .progress-right .progress-bar {
+  left: -100%;
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border-right: 0;
+  -webkit-transform-origin: center right;
+  transform-origin: center right;
+  animation-name: loading-5;
+  /* animation-duration: 2.5s; */
+  animation-timing-function: linear;
+  /* animation-play-state: running; */
+  animation-fill-mode: forwards;
+}
+
+.progress.blue .progress-left .progress-bar {
+  animation-name: loading-5;
+  /* animation-duration: 2.5s; */
+  animation-timing-function: linear;
+  /* animation-play-state: running; */
+  animation-fill-mode: forwards;
+  /* animation-delay: 2.5s; */
+}
+
+@keyframes loading-5 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
 }

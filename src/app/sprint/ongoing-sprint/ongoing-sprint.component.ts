@@ -16,6 +16,8 @@ export class OngoingSprintComponent implements OnInit {
   cancelSprintDialogNgClass = 'dialog-hide';
   finishedSprintDialogNgClass = 'dialog-hide';
   dimmerNgClass = 'dimmer-hide';
+  progressBarLeftNgStyle;
+  progressBarRightNgStyle;
 
   constructor(private dialog: MatDialog, private sprintService: SprintService) { }
 
@@ -24,16 +26,19 @@ export class OngoingSprintComponent implements OnInit {
   }
 
   startOrResumeProgressTimer() {
-    const shortSprint = this.sprintService.getRunningSprint().duration < 180 ? true : false;
+    const sprintDuration = this.sprintService.getRunningSprint().duration;
+    const shortSprint = sprintDuration < 180 ? true : false;
     const percentStepSize = shortSprint ? 1 : 0.1;
     const timeFactor = shortSprint ? 10 : 1;
+
+    const animationDuration = sprintDuration / 2;
+
     this.timer = window.setInterval(
       () => {
         if (this.progressSpinnerValue >= 100) {
           clearInterval(this.timer);
           this.sprintService.finishSprint(true, this.progressSpinnerValue);
           this.finishedSprintDialogNgClass = 'dialog-show';
-          // const dialogRef = this.dialog.open(SprintFinishedDialogComponent, { data: { sprint: this.sprintService.getRunningSprint() } });
           if (this.sprintService.getRunningSprint().notify) {
             const notification = new Notification('≡Sprint', {
               body: 'Your sprint is finished.',
@@ -50,12 +55,32 @@ export class OngoingSprintComponent implements OnInit {
         }
       }, this.sprintService.getRunningSprint().duration * timeFactor
     );
+
+    this.progressBarLeftNgStyle = {
+      'animation-duration': '' + animationDuration + 's',
+      'animation-play-state': 'running',
+      'animation-delay': '' + animationDuration + 's',
+      'border-color': '#3f51b5'
+    };
+    this.progressBarRightNgStyle = {
+      'animation-duration': '' + animationDuration + 's',
+      'animation-play-state': 'running',
+      'border-color': '#3f51b5'
+    };
   }
 
   onClickStopSprint() {
+    this.progressBarRightNgStyle = {
+      'animation-play-state': 'paused',
+      'border-color': 'transparent'
+    };
+    this.progressBarLeftNgStyle = {
+      'animation-play-state': 'paused',
+      'border-color': 'transparent'
+    };
+    clearInterval(this.timer);
     this.cancelSprintDialogNgClass = 'dialog-show';
     this.dimmerNgClass = 'dimmer-show';
-    clearInterval(this.timer);
   }
 
   onClickStopSprintConfirm() {
