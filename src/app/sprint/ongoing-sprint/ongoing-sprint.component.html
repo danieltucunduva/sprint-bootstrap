@@ -1,7 +1,7 @@
 <section fxLayout="column" fxLayoutAlign="center center" class="ongoing-sprint">
-  <h1>Progress</h1>
+  <h3>Progress</h3>
   <mat-progress-spinner mode="determinate" [value]="progressSpinnerValue"></mat-progress-spinner>
-  <h1>{{ progressSpinnerValue }}%</h1>
+  <h3>{{ progressSpinnerValue }}%</h3>
   <p *ngIf="progressSpinnerValue < 100">Focus fully on your task</p>
   <p *ngIf="progressSpinnerValue >= 100">Good job!</p>
   <br>
@@ -10,7 +10,7 @@
     <button class="button-content" type="submit">Stop</button>
   </div>
   <div [ngClass]="cancelSprintDialogNgClass">
-    <h2 style="text-align: center;">On hold. Cancel sprint?</h2>
+    <h6 style="text-align: center;" class="custom-header">On hold. Cancel sprint?</h6>
     <div fxLayout="row" fxLayoutAlign="center end">
       <div (click)="onClickStopSprintConfirm()" class="button-yes-no" style="background-color: #ff4081;">
         <button class="button-content" type="submit">Yes</button>

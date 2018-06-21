@@ -17,6 +17,7 @@ import { Headers } from '@angular/http';
 export class SprintService {
   sprintChanged = new Subject<ISprint>();
   pastSprintsChanged = new Subject<boolean>();
+  finishedSprintChanged = new Subject<ISprint>();
   availableSprintsChanged = new Subject<boolean>();
   private sprints: ISprint[] = [];
   baseApiUrl = environment.baseApiUrl;
@@ -97,6 +98,10 @@ export class SprintService {
       .subscribe(
         response => {
           if (response.ok) {
+            const sprintResponse = response.json().data as ISprint;
+            sprintResponse.startedAt = new Date(sprintResponse.startedAt);
+            sprintResponse.finishedAt = new Date(sprintResponse.startedAt);
+            this.finishedSprintChanged.next(sprintResponse);
             this.runningSprint = null;
             this.sprintChanged.next(null);
             this.pastSprintsChanged.next(true);

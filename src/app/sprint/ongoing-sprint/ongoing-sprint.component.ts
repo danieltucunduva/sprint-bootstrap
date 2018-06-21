@@ -14,6 +14,7 @@ export class OngoingSprintComponent implements OnInit {
   timer = 0;
   @Output() sprintStop = new EventEmitter<void>();
   cancelSprintDialogNgClass = 'dialog-hide';
+  finishedSprintDialogNgClass = 'dialog-hide';
   dimmerNgClass = 'dimmer-hide';
 
   constructor(private dialog: MatDialog, private sprintService: SprintService) { }
@@ -31,7 +32,8 @@ export class OngoingSprintComponent implements OnInit {
         if (this.progressSpinnerValue >= 100) {
           clearInterval(this.timer);
           this.sprintService.finishSprint(true, this.progressSpinnerValue);
-          const dialogRef = this.dialog.open(SprintFinishedDialogComponent, { data: { sprint: this.sprintService.getRunningSprint() } });
+          this.finishedSprintDialogNgClass = 'dialog-show';
+          // const dialogRef = this.dialog.open(SprintFinishedDialogComponent, { data: { sprint: this.sprintService.getRunningSprint() } });
           if (this.sprintService.getRunningSprint().notify) {
             const notification = new Notification('≡Sprint', {
               body: 'Your sprint is finished.',

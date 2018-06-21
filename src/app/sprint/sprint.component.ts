@@ -4,6 +4,7 @@ import { SprintService } from './sprint.service';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { MatDialog } from '@angular/material';
 import { DeleteDataDialogComponent } from './past-sprints/delete-data-dialog/delete-data-dialog.component';
+import { ISprint } from './sprint.model';
 
 @Component({
   selector: 'app-sprint',
@@ -12,12 +13,15 @@ import { DeleteDataDialogComponent } from './past-sprints/delete-data-dialog/del
 })
 export class SprintComponent implements OnInit, AfterViewInit {
   ongoingSprint = false;
-  sprintSubscription: Subscription;
   tabIndex = 0;
+  sprintSubscription: Subscription;
+  finishedSprintSubscription: Subscription;
   pastSprintsSubscription: Subscription;
   availableSprintsSubscription: Subscription;
   pastSprintsNgClass = 'initPastSprints';
   newSprintNgClass = 'hideNewSprint';
+  finishedSprintName = '';
+  finishedSprint: ISprint;
 
   constructor(
     private sprintService: SprintService,
@@ -38,6 +42,14 @@ export class SprintComponent implements OnInit, AfterViewInit {
         setTimeout(() => {
           this.pastSprintsNgClass = 'showPastSprints';
         }, 200);
+      }
+    });
+    this.finishedSprintSubscription = this.sprintService.finishedSprintChanged.subscribe(sprint => {
+      if (sprint) {
+        this.finishedSprint = { ...sprint };
+        this.finishedSprintName = this.sprintService.getFullName(this.finishedSprint);
+      } else {
+        this.tabIndex = 1;
       }
     });
     this.pastSprintsSubscription = this.sprintService.pastSprintsChanged.subscribe(sprint => {
@@ -86,6 +98,11 @@ export class SprintComponent implements OnInit, AfterViewInit {
       setTimeout(() => { this.pastSprintsNgClass = 'transparent'; }, 400);
     }
     this.tabIndex = 1;
+  }
+
+  onClickCloseFinishedSprintDialog() {
+    this.finishedSprint = null;
+    this.finishedSprintName = null;
   }
 
 }

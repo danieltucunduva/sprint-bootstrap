@@ -5,7 +5,7 @@
 
 .card {
   width: 16em;
-  height: 28em;
+  height: 24em;
   box-shadow: 2px 1px 8px 1px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
   padding: 0 2em 0.5em 2em;
