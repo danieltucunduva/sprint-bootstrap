@@ -1,9 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SprintService } from './sprint.service';
-import { AuthenticationService } from '../authentication/authentication.service';
-import { MatDialog } from '@angular/material';
-import { DeleteDataDialogComponent } from './past-sprints/delete-data-dialog/delete-data-dialog.component';
 import { ISprint } from './sprint.model';
 
 @Component({
@@ -25,8 +22,6 @@ export class SprintComponent implements OnInit, AfterViewInit {
 
   constructor(
     private sprintService: SprintService,
-    private authenticationService: AuthenticationService,
-    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -72,15 +67,6 @@ export class SprintComponent implements OnInit, AfterViewInit {
 
   sprintStop() {
     this.tabIndex = 0;
-  }
-
-  onClickDeleteData() {
-    const dialogRef = this.dialog.open(DeleteDataDialogComponent, { data: { type: 'delete-user' } });
-    dialogRef.afterClosed().subscribe(response => {
-      if (response) {
-        this.authenticationService.deleteLoggedUser();
-      }
-    });
   }
 
   onClickPastSprintsTabHeader() {

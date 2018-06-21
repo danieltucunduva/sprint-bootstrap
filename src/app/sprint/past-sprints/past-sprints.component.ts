@@ -2,11 +2,8 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ISprint } from '../sprint.model';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { SprintService } from '../sprint.service';
-import { FormGroup, FormControl } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { AuthenticationService } from '../../authentication/authentication.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 
 @Component({
   selector: 'app-past-sprints',
@@ -20,6 +17,8 @@ export class PastSprintsComponent implements OnInit, AfterViewInit {
     'name', 'spacing', 'status', 'spacing', 'startedDate', 'spacing',
     'startedTime', 'spacing', 'finishedTime', 'spacing', 'description'
   ];
+  deleteAllDataDialogNgClass = 'dialog-hide';
+  dimmerNgClass = 'dimmer-hide';
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -70,6 +69,21 @@ export class PastSprintsComponent implements OnInit, AfterViewInit {
     const status: string = sprint.status.charAt(0).toUpperCase() + sprint.status.slice(1);
     const progress: string = sprint.status === 'completed' ? '' : ' (at ' + sprint.progress + '%)';
     return status + progress;
+  }
+
+  onClickDeleteAllData() {
+    this.deleteAllDataDialogNgClass = 'dialog-show';
+    this.dimmerNgClass = 'dimmer-show';
+  }
+
+  onClickDeleteAllDataConfirm() {
+    this.authenticationService.deleteLoggedUser();
+    this.onClickDeleteAllDataCancel();
+  }
+
+  onClickDeleteAllDataCancel() {
+    this.deleteAllDataDialogNgClass = 'dialog-hide';
+    this.dimmerNgClass = 'dimmer-hide';
   }
 
 }

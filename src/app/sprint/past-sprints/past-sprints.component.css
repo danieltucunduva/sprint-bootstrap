@@ -51,3 +51,106 @@ tr {
   background-color: #3f51b5;
   border-color: #3f51b5;
 }
+
+/* Delete all data dialog ================================== */
+
+.custom-header {
+  font-family: inherit;
+  font-size: 14.5pt;
+  font-weight: 500;
+  margin-top: 0.75em;
+  margin-bottom: 1.5em;
+}
+
+.button-content {
+  background: transparent;
+  color: inherit;
+  border: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font: inherit;
+  cursor: inherit;
+  padding: 0.6em 2em;
+}
+
+.button-delete {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 0;
+  color: #f44336;
+  background-color: transparent;
+  outline: none;
+  border-radius: 2px;
+  font-size: 11pt;
+  text-decoration: none;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-delete:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.button-yes-no {
+  margin: 0.5em;
+  color: white;
+  outline: none;
+  border-radius: 2px;
+  font-size: 11pt;
+  text-decoration: none;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dialog-hide {
+  position: absolute;
+  left: -150em;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: 0;
+}
+
+.dialog-show {
+  background: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -12em;
+  margin-top: -8em;
+  width: 24em;
+  height: 16em;
+  opacity: 1;
+  z-index: 3;
+  border-radius: 2px;
+}
+
+.delete-text {
+  padding: 1em;
+  text-align: justify;
+}
+
+.dimmer-hide {
+  position: fixed;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: 0;
+}
+
+.dimmer-show {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}

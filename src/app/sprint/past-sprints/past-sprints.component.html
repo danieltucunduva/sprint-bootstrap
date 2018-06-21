@@ -42,3 +42,31 @@
     </tr>
   </tfoot>
 </table>
+
+<div fxLayout="column" fxLayoutAlign="center center">
+  <div (click)="onClickDeleteAllData()" class="button-delete">
+    <button class="button-content" type="submit">Delete all data</button>
+  </div>
+</div>
+
+<div [ngClass]="dimmerNgClass"></div>
+
+<div [ngClass]="deleteAllDataDialogNgClass" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1em">
+  <h5 class="custom-header" style="text-align: center;">Deletion is irreversible. Are you sure?</h5>
+  <div class="delete-text">
+    <p>The only information concerning your user that we store are your past sprints. We do not store information about your
+      user itself.
+    </p>
+    <p>
+      Delete to eliminate all records.
+    </p>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center end">
+    <div (click)="onClickDeleteAllDataConfirm()" class="button-yes-no" style="background-color: #f44336;">
+      <button class="button-content" type="submit">Yes</button>
+    </div>
+    <div (click)="onClickDeleteAllDataCancel()" class="button-yes-no" style="background-color: #3f51b5;">
+      <button class="button-content" type="submit">No</button>
+    </div>
+  </div>
+</div>
