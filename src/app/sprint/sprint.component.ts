@@ -19,6 +19,8 @@ export class SprintComponent implements OnInit, AfterViewInit {
   newSprintNgClass = 'hideNewSprint';
   finishedSprintName = '';
   finishedSprint: ISprint;
+  pastSprintsExist = true;
+  newSprintExists = true;
 
   constructor(
     private sprintService: SprintService,

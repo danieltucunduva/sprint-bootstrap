@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { MatDialog } from '@angular/material';
 import { SprintService } from '../sprint.service';
 
 @Component({
@@ -17,7 +16,7 @@ export class OngoingSprintComponent implements OnInit {
   progressBarLeftNgStyle;
   progressBarRightNgStyle;
 
-  constructor(private dialog: MatDialog, private sprintService: SprintService) { }
+  constructor(private sprintService: SprintService) { }
 
   ngOnInit() {
     this.startOrResumeProgressTimer();

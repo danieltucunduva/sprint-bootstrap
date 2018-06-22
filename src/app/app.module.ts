@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
-import { MaterialModule } from './material.module';
 import { SprintComponent } from './sprint/sprint.component';
 import { OngoingSprintComponent } from './sprint/ongoing-sprint/ongoing-sprint.component';
 import { NewSprintComponent } from './sprint/new-sprint/new-sprint.component';
@@ -46,7 +45,6 @@ registerLocaleData(localeFr, 'fr');
     BrowserModule,
     HttpModule,
     BrowserAnimationsModule,
-    MaterialModule,
     AppRoutingModule,
     FlexLayoutModule,
     FormsModule,

@@ -1,22 +1,24 @@
-<div>
-  <div *ngIf="finishedSprint" class="dimmer"></div>
-  <div *ngIf="finishedSprint" class="finishedSprintDialog">
-    <div>
-      <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1.25em">
-        <h4>Sprint finished</h4>
-        <h5>
-          {{ finishedSprintName }}
-        </h5>
-        <span class="finished-text">
-          Started: {{ finishedSprint.startedAt.getHours() }}h{{ finishedSprint.startedAt.getMinutes() }}min{{ finishedSprint.startedAt.getSeconds()
-          }}s
-          <br> Completed: {{ finishedSprint.finishedAt.getHours() }}h{{ finishedSprint.finishedAt.getMinutes() }}min{{ finishedSprint.finishedAt.getSeconds()
-          }}s
-        </span>
-        <br>
-        <br>
-        <div (click)="onClickCloseFinishedSprintDialog()" class="button-close">
-          <button class="button-content" type="submit">✔</button>
+<div class="wrapper">
+  <div class="hidden-elements-wrapper">
+    <div *ngIf="finishedSprint" class="dimmer"></div>
+    <div *ngIf="finishedSprint" class="finishedSprintDialog">
+      <div>
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1.25em">
+          <h4>Sprint finished</h4>
+          <h5>
+            {{ finishedSprintName }}
+          </h5>
+          <span class="finished-text">
+            Started: {{ finishedSprint.startedAt.getHours() }}h{{ finishedSprint.startedAt.getMinutes() }}min{{ finishedSprint.startedAt.getSeconds()
+            }}s
+            <br> Completed: {{ finishedSprint.finishedAt.getHours() }}h{{ finishedSprint.finishedAt.getMinutes() }}min{{ finishedSprint.finishedAt.getSeconds()
+            }}s
+          </span>
+          <br>
+          <br>
+          <div (click)="onClickCloseFinishedSprintDialog()" class="button-close">
+            <button class="button-content" type="submit">✔</button>
+          </div>
         </div>
       </div>
     </div>
@@ -26,15 +28,14 @@
       <button class="tablinks" (click)="onClickPastSprintsTabHeader()" class="{{tabIndex === 0 ? 'active':''}}">Past Sprints</button>
       <button class="tablinks" (click)="onClickNewSprintTabHeader()" class="{{tabIndex === 1 ? 'active':''}}">New Sprint</button>
     </div>
-    <div class="tabcontent" [ngClass]="pastSprintsNgClass">
+    <div *ngIf="pastSprintsExist" class="tabcontent" [ngClass]="pastSprintsNgClass">
       <app-past-sprints></app-past-sprints>
       <app-logged-user-name></app-logged-user-name>
     </div>
-
-    <div class="tabcontent" [ngClass]="newSprintNgClass">
+    <div *ngIf="newSprintExists" class="tabcontent" [ngClass]="newSprintNgClass">
       <app-new-sprint></app-new-sprint>
       <app-logged-user-name></app-logged-user-name>
     </div>
   </div>
-  <app-ongoing-sprint (sprintStop)="sprintStop()" *ngIf="ongoingSprint"></app-ongoing-sprint>
 </div>
+<app-ongoing-sprint (sprintStop)="sprintStop()" *ngIf="ongoingSprint"></app-ongoing-sprint>
