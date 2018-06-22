@@ -33,6 +33,7 @@ tr {
 }
 
 .inputSearch {
+  text-align: center;
   width: 25%;
   margin-left: 37.5%;
   border: 0px;

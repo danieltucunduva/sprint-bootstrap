@@ -8,9 +8,6 @@
 # dependencies
 /node_modules
 
-# variables
-.environment_variables.js
-
 # IDEs and editors
 /.idea
 .project
@@ -44,3 +41,6 @@ Thumbs.db
 # swagger file
 server/swagger/docs/api-docs.json
 server/swagger/node_modules
+
+# Custom variables
+.environment_variables.js
