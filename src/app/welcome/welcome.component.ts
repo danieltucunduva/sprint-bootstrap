@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class WelcomeComponent implements OnInit {
   termsAndConditionsDialogNgClass = 'dialog-hide';
   dimmerNgClass = 'dimmer-hide';
+  termsAndConditionsDialogExists = false;
 
   constructor() { }
 
@@ -15,11 +16,13 @@ export class WelcomeComponent implements OnInit {
   }
 
   onClickTermsAndConditions() {
+    this.termsAndConditionsDialogExists = true;
     this.termsAndConditionsDialogNgClass = 'dialog-show';
     this.dimmerNgClass = 'dimmer-show';
   }
 
   onClickCloseTermsAndConditions() {
+    this.termsAndConditionsDialogExists = false;
     this.termsAndConditionsDialogNgClass = 'dialog-hide';
     this.dimmerNgClass = 'dimmer-hide';
   }

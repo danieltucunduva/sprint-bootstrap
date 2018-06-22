@@ -24,12 +24,18 @@
 
 <div [ngClass]="dimmerNgClass" (click)="onClickCloseTermsAndConditions()"></div>
 
-<div [ngClass]="termsAndConditionsDialogNgClass" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1em">
-  <h1 style="text-align: center;">Terms and Conditions</h1>
-  <div>
+<div *ngIf="termsAndConditionsDialogExists" [ngClass]="termsAndConditionsDialogNgClass" fxLayout="column" fxLayoutAlign="center center"
+  fxLayoutGap="0em">
+  <h1 style="text-align: center;">
+    Terms and Conditions</h1>
+  <div style="padding-top: 1em;">
+    <div class="app-name">≡Sprint</div>
+    <app-version-tag></app-version-tag>
+  </div>
+  <div style="padding-top: 1em;">
     <ol>
       <li>
-        <h6 class="custom-header">You understand this is an alpha version.</h6>
+        <h6 class="custom-header">You understand this is a demonstrative application.</h6>
         <span class="terms-text">
           Long term persistence of your data is not guaranteed.
         </span>

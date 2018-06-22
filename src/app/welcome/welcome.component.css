@@ -1,6 +1,7 @@
 section {
   padding: 30px;
   padding-top: 3em;
+  height: fit-content
 }
 
 p {
@@ -58,14 +59,19 @@ h1 {
   color: rgb(10, 10, 10, .87);
 }
 
+.app-name {
+  font-size: 14pt;
+  font-family: monospace;
+  font-style: oblique;
+}
+
 /* Terms dialog ================================== */
 
 .custom-header {
   font-family: inherit;
   font-size: 14.5pt;
-  font-weight: 500;
-  margin-top: 0.75em;
-  margin-bottom: 1.5em;
+  font-weight: 550;
+  margin: 0.75em 0;
 }
 
 .dialog-hide {
