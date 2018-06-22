@@ -98,7 +98,7 @@ export class SprintService {
           if (response.ok) {
             const sprintResponse = response.json().data as ISprint;
             sprintResponse.startedAt = new Date(sprintResponse.startedAt);
-            sprintResponse.finishedAt = new Date(sprintResponse.startedAt);
+            sprintResponse.finishedAt = new Date(sprintResponse.finishedAt);
             if (sprintResponse.status === 'completed') {
               this.finishedSprintChanged.next(sprintResponse);
             }
