@@ -19,7 +19,6 @@ a {
 footer {
   padding-top: 50px;
   text-align: center;
-  font-style: italic;
   font-size: 12pt;
 }
 
@@ -87,7 +86,7 @@ h1 {
   background: white;
   position: fixed;
   left: 50%;
-  top: 40%;
+  top: 45%;
   margin-left: -12em;
   margin-top: -8em;
   width: 24em;
