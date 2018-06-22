@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="hidden-elements-wrapper">
+  <div class="hidden-elements-wrapper" *ngIf="finishedSprint">
     <div *ngIf="finishedSprint" class="dimmer"></div>
     <div *ngIf="finishedSprint" class="finishedSprintDialog">
       <div>
@@ -9,7 +9,7 @@
             {{ finishedSprintName }}
           </h5>
           <span class="finished-text">
-            Started: {{ finishedSprint.startedAt.getHours() }}h{{ finishedSprint.startedAt.getMinutes() }}min{{ finishedSprint.startedAt.getSeconds()
+            Started: &nbsp;&nbsp;{{ finishedSprint.startedAt.getHours() }}h{{ finishedSprint.startedAt.getMinutes() }}min{{ finishedSprint.startedAt.getSeconds()
             }}s
             <br> Completed: {{ finishedSprint.finishedAt.getHours() }}h{{ finishedSprint.finishedAt.getMinutes() }}min{{ finishedSprint.finishedAt.getSeconds()
             }}s
