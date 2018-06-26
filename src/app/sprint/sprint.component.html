@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" *ngIf="!ongoingSprint">
   <div class="hidden-elements-wrapper" *ngIf="finishedSprint">
     <div *ngIf="finishedSprint" class="dimmer"></div>
     <div *ngIf="finishedSprint" class="finishedSprintDialog">

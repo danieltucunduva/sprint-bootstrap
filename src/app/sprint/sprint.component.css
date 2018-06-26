@@ -5,6 +5,7 @@
   overflow: hidden;
   width: 100%;
   height: fit-content;
+  min-height: 600px;
 }
 
 .delete-user {
