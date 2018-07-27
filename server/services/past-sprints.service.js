@@ -59,37 +59,3 @@ exports.createPastSprint = async function (pastSprint) {
     logger.log(e)
   }
 }
-
-// exports.updateSprint = async function (sprint) {
-//   const sprintId = sprint._id
-//   let storedSprint = null
-//   try {
-//     storedSprint = await PastSprintModel.findById(sprintId)
-//     if (!storedSprint) {
-//       return false
-//     }
-//     storedSprint.title = sprint.title
-//     storedSprint.description = sprint.description
-//     storedSprint.status = sprint.status
-//   } catch (e) {
-//   }
-//   try {
-//     const updatedSprint = await storedSprint.save()
-//     return updatedSprint
-//   } catch (e) {
-//   }
-// }
-
-// exports.deleteSprint = async function (sprintId) {
-//   let deleted = null
-//   try {
-//     deleted = await PastSprintModel.remove({
-//       _id: sprintId
-//     })
-//   } catch (e) {
-//   }
-//   if (deleted.result.n === 0) {
-//     throw Error('Delete sprint: sprint could not be deleted')
-//   }
-//   return deleted
-// }
