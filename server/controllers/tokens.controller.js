@@ -39,7 +39,9 @@ exports.getToken = async function (req, res) {
   if (tokenUsername && tokenPassword && username === tokenUsername && password === tokenPassword) {
     return res.status(200).json({
       status: 200,
-      data: process.env.TOKEN,
+      data: {
+        token: process.env.TOKEN
+      },
       message: 'Success: authorization token retrieved'
     })
   }
