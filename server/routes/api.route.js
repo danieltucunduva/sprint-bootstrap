@@ -9,10 +9,11 @@ const jwksRsa = require('jwks-rsa')
 // the Auth0 JSON Web Key Set
 const checkJwt = (req, res, next) => {
   const token = req.get('Token')
-  if (token && token === '23ry8347yr') {
-    return next()
+  if (token && token === process.env.TOKEN) {
+    next()
+    return
   }
-  return jwt({
+  jwt({
     // Dynamically provide a signing key
     // based on the kid in the header and
     // the signing keys provided by the JWKS endpoint.
@@ -29,12 +30,14 @@ const checkJwt = (req, res, next) => {
   })
 }
 
-var pastSprints = require('./api/past-sprints.route')
-var sprintTemplates = require('./api/sprint-templates.route')
-var users = require('./api/users.route')
+const pastSprints = require('./api/past-sprints.route')
+const sprintTemplates = require('./api/sprint-templates.route')
+const users = require('./api/users.route')
+const tokens = require('./api/tokens.route')
 
 router.use('/past-sprints', checkJwt, pastSprints)
 router.use('/sprint-templates', checkJwt, sprintTemplates)
 router.use('/users', checkJwt, users)
+router.use('/token', tokens)
 
 module.exports = router

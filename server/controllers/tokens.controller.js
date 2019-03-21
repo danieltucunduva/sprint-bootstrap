@@ -1,11 +1,10 @@
-const userService = require('../services/user.service')
 
 /**
  * @swagger
- * /api/users/:username:
- *   delete:
+ * /api/token/
+ *   get:
  *     tags:
- *      - users
+ *      - tokens
  *     parameters:
  *       - name: user
  *         description: User
@@ -31,19 +30,21 @@ const userService = require('../services/user.service')
  *       400:
  *         description: bad request
  */
-exports.deleteData = async function (req, res) {
-  const userId = req.params.username
-  try {
-    const sprintsDeleted = await userService.deleteData(userId)
+exports.getToken = async function (req, res) {
+  const username = req.get('username')
+  const password = req.get('password')
+  const tokenUsername = process.env.TOKEN_USERNAME
+  const tokenPassword = process.env.TOKEN_PASSWORD
+
+  if (tokenUsername && tokenPassword && username === tokenUsername && password === tokenPassword) {
     return res.status(200).json({
       status: 200,
-      data: sprintsDeleted,
-      message: 'Success: data deleted'
-    })
-  } catch (e) {
-    return res.status(400).json({
-      status: 400,
-      message: e.message
+      data: process.env.TOKEN,
+      message: 'Success: authorization token retrieved'
     })
   }
+  return res.status(400).json({
+    status: 400,
+    message: 'Invalid username or password'
+  })
 }
