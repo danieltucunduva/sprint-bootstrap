@@ -50,6 +50,7 @@
     "express": "^4.16.3",
     "express-fluent-logger": "^0.2.9",
     "express-jwt": "^5.3.1",
+    "express-swaggerize-ui": "^1.0.4",
     "fluent-logger-node": "0.0.3",
     "font-awesome": "^4.7.0",
     "gelf-http": "^1.0.1",
@@ -71,6 +72,7 @@
     "rxjs": "^6.2.1",
     "rxjs-compat": "^6.2.1",
     "serve-favicon": "^2.4.5",
+    "swagger-jsdoc": "^3.2.7",
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.26"
   },

@@ -7,6 +7,9 @@ const api = require('./routes/api.route')
 const bluebird = require('bluebird')
 const mongoose = require('mongoose')
 const app = express()
+const fs = require('fs')
+const swaggerUi = require('express-swaggerize-ui')
+const swaggerJSDoc = require('swagger-jsdoc')
 
 let DB_URI_LOCAL, USE_CONSOLE_FOR_LOGGING
 try {
@@ -111,6 +114,31 @@ app.use(function (err, req, res, next) {
   res.locals.error = err
   res.status(err.status || 500)
   res.render('error')
+})
+
+const SWAGGER_PORT_API = process.env.PORT || 8080
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: 'Sprint', // Title (required)
+      version: '0.2' // Version (required)
+    },
+    host: `localhost:${SWAGGER_PORT_API}`
+  },
+  apis: ['server/controllers/*.js', 'server/models/*.js']
+}
+const swaggerSpec = swaggerJSDoc(swaggerOptions)
+const text = JSON.stringify(swaggerSpec)
+fs.writeFile('server/docs/api-docs.json', text, (err) => {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log('\n** api-docs.json generated. **')
+    api.use('/api-docs.json', function (req, res) {
+      res.json(require('./docs/api-docs.json'))
+    })
+    api.use('/api-docs', swaggerUi())
+  }
 })
 
 mongoose.Promise = bluebird

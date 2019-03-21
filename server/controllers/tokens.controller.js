@@ -1,35 +1,4 @@
 
-/**
- * @swagger
- * /api/token/
- *   get:
- *     tags:
- *      - tokens
- *     parameters:
- *       - name: user
- *         description: User
- *         in: body
- *         required: true
- *         schema:
- *           type: string
- *     description: Deletes all data concerning a user
- *     produces:
- *      - application/json
- *     responses:
- *       200:
- *         description: ok
- *         schema:
- *           type: object
- *           properties:
- *             status:
- *               type: number
- *             data:
- *               type: number
- *             message:
- *               type: string
- *       400:
- *         description: bad request
- */
 exports.getToken = async function (req, res) {
   const username = req.get('username')
   const password = req.get('password')
