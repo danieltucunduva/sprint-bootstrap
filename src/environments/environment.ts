@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   baseApiUrl: 'http://localhost:8080/api/',
-  authenticationRedirectUrl: 'http://localhost:4200/',
-  logoutRedirectUrl: 'http://localhost:4200/'
+  authenticationRedirectUrl: 'http://localhost:8080/',
+  logoutRedirectUrl: 'http://localhost:8080/'
 };
 
 /*
